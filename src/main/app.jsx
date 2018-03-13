@@ -1,9 +1,7 @@
-import 'modules/bootstrap/dist/css/bootstrap.min.css'
-import 'modules/font-awesome/css/font-awesome.min.css'
-
+import '../common/template/dependencies'
 import React from 'react'
 import Routes from './routes'
-import Menu from '../template/menu'
+import Menu from '../components/menu'
 
 export default props => (
     <div className="wrapper">
