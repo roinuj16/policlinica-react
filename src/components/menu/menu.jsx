@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../assets/images/logo2_.png'
+import logo from '../../assets/images/logo2_.png'
 
 export default props => (
     <header id="header" className="header header-1">

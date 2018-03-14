@@ -6,6 +6,11 @@ import 'modules/ionicons/css/ionicons.min.css'
 import './css/style.css'
 import './css/responsive.css'
 import './css/default.css'
+import '../../assets/fonts/Flaticon.eot'
+import '../../assets/fonts/Flaticon.eot?'
+import '../../assets/fonts/Flaticon.svg'
+import '../../assets/fonts/Flaticon.ttf'
+import '../../assets/fonts/Flaticon.woff'
 
 
 // import 'modules/jquery/dist/jquery.min'

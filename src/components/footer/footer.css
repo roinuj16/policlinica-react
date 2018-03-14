@@ -1,0 +1,244 @@
+.footer {
+    background-color: rgba(0, 165, 93, 0.8);
+    color: #fff;
+    position: relative;
+    width: 100%;
+    display: block;
+}
+.footer hr {
+    border-color: #eee;
+}
+.footer .footer-info p {
+    color: #ffffff;
+    margin-bottom: 0px;
+}
+.footer-info .col-xs-12 {
+    min-height: 200px;
+}
+.footer-logo {
+    max-width: 125px;
+    display: inline-block;
+    width: 100%;
+}
+.footer .social, .contact .social {
+    font-size: 17px;
+}
+.footer ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+.footer ul.social li, .contact ul.social li {
+    display: inline-block;
+    margin: 0 7px 0 0;
+}
+.footer .link a {
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+.footer h5 {
+    color: #f0eded;
+    margin-bottom: 30px;
+}
+.footer .link-small a {
+    text-transform: none;
+    color: #ffffff;
+}
+.footer address {
+    color: #ffffff;
+    position: relative;
+    padding-left: 30px;
+}
+.footer .blog-link li {
+    margin-right: 5px;
+    margin-bottom: 15px;
+}
+.footer .link-small a {
+    position: relative;
+    padding-left: 29px
+}
+.footer .link-small li {
+    margin-bottom: 20px;
+}
+.footer .icons-hover-black i {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    margin-bottom: 15px;
+    display: inline-block;
+    margin-right: 1px;
+    border-radius: 50%;
+    background: #1D1D1D;
+    color: #fff;
+}
+.footer .blog-link img {
+    width: 60px;
+    height: 40px;
+}
+.footer .copyright {
+    text-align: center;
+    padding: 30px 0 20px;
+    background: #009455;
+}
+.footer .copyright p, .footer .copyright p a {
+    color: #ffffff;
+}
+.footer .post-content {
+    font-size: 12px;
+    color: #615F5F;
+    text-transform: uppercase;
+}
+.footer .fa-icons {
+    font-size: 22px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.entry-thumbnail {
+    float: left;
+    margin: 0 15px 0 0 !important;
+    max-width: 60px;
+    padding-right: 0;
+}
+.entry-thumbnail {
+    float: left;
+    margin: 0 15px 0 0 !important;
+    max-width: 60px;
+    padding-right: 0;
+}
+.blog-link .fa {
+    font-size: 15px;
+    margin-right: 8px;
+}
+/* light footer css */
+.light-footer {
+    background-color: #EFEFEF;
+    border-top: 1px solid #D6D4D4;
+    color: #000;
+}
+.light-footer.footer h5, .light-footer.footer .footer-info p, .light-footer.footer .copyright, .light-footer .copyright a {
+    color: #000;
+}
+.light-footer.footer .copyright {
+    border-top: 1px solid #E0DFDF;
+    background: #FBFBFB;
+}
+.light-footer .newsletter .newsletter-input, .light-footer .newsletter .newsletter-input:focus {
+    background: #eee;
+    color: #000;
+}
+.newsletter {
+    position: relative;
+}
+.newsletter form {
+    position: relative;
+    margin-top: 20px;
+}
+.newsletter .newsletter-input, .newsletter .newsletter-input:focus {
+    width: 100%;
+    border-top: 0px none;
+    border-left: 0px none;
+    border-right: 0px none;
+    padding-right: 40px !important;
+    background: none;
+    border-radius: 0;
+    border: 1px solid #B1AFAF;
+    color: #ffffff;
+}
+.newsletter .newsletter-btn {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 18px;
+    background: #ffffff;
+    line-height: 23px;
+    border-radius: 0;
+    width: 49px;
+}
+.footer .icons-hover-black {
+    padding-top: 10px;
+}
+
+ul.social-network {
+    list-style: none;
+    display: inline;
+    margin-left:0 !important;
+    padding: 0;
+}
+ul.social-network li {
+    display: inline;
+    margin: 0 5px;
+}
+
+
+/* footer social icons */
+.social-network a.icoRss:hover {
+    background-color: #F56505;
+}
+.social-network a.icoFacebook:hover {
+    background-color:#3B5998;
+}
+.social-network a.icoTwitter:hover {
+    background-color:#33ccff;
+}
+.social-network a.icoGoogle:hover {
+    background-color:#BD3518;
+}
+.social-network a.icoVimeo:hover {
+    background-color:#0590B8;
+}
+.social-network a.icoLinkedin:hover {
+    background-color:#007bb7;
+}
+.social-network a.icoRss:hover i, .social-network a.icoFacebook:hover i, .social-network a.icoTwitter:hover i,
+.social-network a.icoGoogle:hover i, .social-network a.icoVimeo:hover i, .social-network a.icoLinkedin:hover i {
+    color:#fff;
+}
+a.socialIcon:hover, .socialHoverClass {
+    color:#44BCDD;
+}
+
+.social-circle li a {
+    display:inline-block;
+    position:relative;
+    margin:0 auto 0 auto;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    border-radius:50%;
+    text-align:center;
+    width: 50px;
+    height: 50px;
+    font-size:20px;
+}
+.social-circle li i {
+    margin:0;
+    line-height:50px;
+    text-align: center;
+}
+
+.social-circle li a:hover i, .triggeredHover {
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -ms--transform: rotate(360deg);
+    transform: rotate(360deg);
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    transition: all 0.2s;
+}
+.social-circle i {
+    color: #fff;
+    -webkit-transition: all 0.8s;
+    -moz-transition: all 0.8s;
+    -o-transition: all 0.8s;
+    -ms-transition: all 0.8s;
+    transition: all 0.8s;
+}
+
+/*a {*/
+    /*background-color: #D3D3D3;*/
+/*}*/
