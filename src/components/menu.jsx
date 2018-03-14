@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../assets/images/logo.png'
+import logo from '../assets/images/logo2_.png'
 
 export default props => (
     <header id="header" className="header header-1">
@@ -17,7 +17,7 @@ export default props => (
                                 <li><a href="#" data-toggle="modal" data-target=".emergency-call"> <i className="icon ion-ios-bell"></i> Telefones de Emergência </a> </li>
                                 <li>
                                     <a href="#" className="btn btn-md btn-white-line">
-                                        <i className="fas fa-graduation-cap"></i> <strong>Cursos Online</strong>
+                                        <i className="icon ion-university"></i> <strong>Cursos Online</strong>
                                     </a>
                                 </li>
                             </ul>
