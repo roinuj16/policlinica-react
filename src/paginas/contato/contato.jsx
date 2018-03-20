@@ -14,10 +14,6 @@ export default class Contato extends Component {
             <div>
                 <Breadcrumb name='Contato'/>
                 <section className="ptb ptb-sm-80">
-                    <div className="container">
-
-
-                    </div>
                     <div className="container contact-form mt-up">
                         <div className="row pt-80">
                             <div className="col-md-8 col-md-offset-2 text-center">
