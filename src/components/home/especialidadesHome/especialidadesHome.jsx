@@ -8,12 +8,17 @@ export default props => (
                     <h2> Especialidades</h2>
                 </div>
             </div>
+            <div className="row">
+                <div className="col-xs-12 col-sm-3">
+                    {/*<h3><a href="javascript:avoid(0);">Psiquiatria</a></h3>f*/}
+                </div>
+            </div>
             <div className="row padding mt-10">
-                <div className="col-xs-12 col-sm-3 zoom">
-                    <div className="inner-header-wraper">
-                        {/*<span className="flaticon-medical-11 icon-paper-plane"> </span>*/}
+                <div className="col-xs-12 col-sm-3">
+                    {/*<div className="inner-header-wraper">*/}
+                        {/*<span className="fa fa-briefcase-medical"> </span>*/}
                         <h3><a href="javascript:avoid(0);">Psiquiatria</a></h3>
-                    </div>
+                    {/*</div>*/}
                 </div>
                 <div className="col-xs-12 col-sm-3 zoom">
                     <div className="inner-header-wraper">

@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 
+import Blog from '../../components/blog/blog'
+import Breadcrumb from '../../components/breadcrumb/breadcrumb'
+
 export default class Informativo extends Component {
     render() {
         return (
             <div>
-                <h1>Informativo</h1>
+                <Breadcrumb name='Informativo'/>
+                <Blog/>
             </div>
         )
     }

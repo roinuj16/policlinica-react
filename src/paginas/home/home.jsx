@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 
-import Banner from '../../components/banner/banner'
-import AboutHome from '../../components/aboutHome/aboutHome'
-import EspecialidadesHome from '../../components/especialidadesHome/especialidadesHome'
+import Banner from '../../components/home/banner/banner'
+import AboutHome from '../../components/home/aboutHome/aboutHome'
+import EspecialidadesHome from '../../components/home/especialidadesHome/especialidadesHome'
+import Atendimento from '../../components/home/atendimento/atendimento'
+import Blog from '../../components/blog/blog'
 
 export default class Home extends Component {
     render() {
@@ -11,6 +13,8 @@ export default class Home extends Component {
                <Banner/>
                 <AboutHome/>
                 <EspecialidadesHome/>
+                <Atendimento/>
+                <Blog/>
             </div>
         )
     }
