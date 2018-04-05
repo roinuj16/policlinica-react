@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
+import { myConfig } from '../../../main/consts'
+
 const URL = 'http://localhost:8000/api/homeInfo';
 
 export default class AboutHome extends Component {
@@ -29,8 +31,7 @@ export default class AboutHome extends Component {
     }
 
     getData() {
-        axios.get(`${URL}`).then(resp => console.log(resp.data.dados));
-        axios.get(`${URL}`).then(resp => this.setState({
+        axios.get(`${myConfig.apiUrl}/homeInfo`).then(resp => this.setState({
             ...this.state,
             titulo: resp.data.dados.titulo,
             descricao: resp.data.dados.descricao,

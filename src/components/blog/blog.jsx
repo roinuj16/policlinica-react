@@ -1,9 +1,61 @@
 import React, { Component } from 'react'
+import moment from 'moment'
 
-import img1 from '../../assets/images/blog/img1.jpg'
-import img2 from '../../assets/images/blog/img2.jpg'
+
+import axios from 'axios'
+import { myConfig } from '../../main/consts'
 
 export default class Blog extends Component {
+    constructor(props) {
+        moment.locale('pt-br');
+        super(props);
+        this.state = { items: '' };
+    }
+
+    componentDidMount() {
+        axios.get(`${myConfig.apiUrl}/post`).then(response => {
+            console.log('aqui', response.data.dados);
+            this.setState({
+                ...this.state,
+                items: response.data.dados
+            });
+        }).catch(function (error) {
+            console.log(error);
+        })
+    }
+
+    // @TODO: Finalizar a listagem de posts
+    listaPosts() {
+        const list = this.state.items || [];
+        return list.map(todo => {
+            console.log(todo.user.name);
+            let dia = moment(todo.created_at).format('L').split('/')[1];
+            let mes = moment(todo.created_at).format('MMM');
+
+            return (
+                <div className="col-sm-3 mb-xs-30" key={todo.id}>
+                    <div className="blog-post">
+                        <div className="post-media">
+                            <img src={todo.img_path} alt=""/>
+                            <span className="event-calender blog-date"> {dia} <span>{mes}</span> </span>
+                        </div>
+                        <div className="post-meta">
+                            <span>por <a>{ todo.user.name }</a>,</span>
+                        </div>
+                        <div className="post-header">
+                            <h5><a>{ todo.titulo }</a></h5>
+                        </div>
+                        <div className="post-entry">
+                            <div dangerouslySetInnerHTML={{__html: todo.resumo}}/>
+                        </div>
+                        <div className="post-more-link pull-left">
+                            <a href="#" className="btn btn-md btn-color-line ">LeiaMais</a></div>
+                    </div>
+                </div>
+            )
+        })
+    }
+
 
     render() {
         return (
@@ -15,85 +67,7 @@ export default class Blog extends Component {
                                 <h2 className="mt-sm">Posts em Destaque </h2>
                                 <div className="spacer-15"></div>
                                 <div className="row">
-                                    <div className="col-sm-4 mb-xs-30">
-                                        <div className="blog-post">
-                                            <div className="post-media">
-                                                <img src={img1} alt="" />
-                                                <span className="event-calender blog-date"> 21 <span>Jun</span> </span>
-                                            </div>
-                                            <div className="post-meta">
-                                                <span>por <a href="#">Admin</a>,</span>
-                                                <span>
-                                                    <a href="#">
-                                                      <i className="fa fa-comment-o"></i> 25</a>,
-                                                </span>
-                                                <span>
-                                                <a href="#"><i className="fa fa-heart-o"></i> 57</a>,
-                                            </span>
-                                            </div>
-                                            <div className="post-header">
-                                                <h4><a href="#">Maecenas nec fdfodio ante varcy tincidunt</a></h4>
-                                            </div>
-                                            <div className="post-entry">
-                                                <p>Perspiciatis unde omnis iste natus doxes sit voluptatem accusantium dantiumeaque ipsa quae ab illos</p>
-                                            </div>
-                                            <div className="post-more-link pull-left"><a href="#" className="btn btn-md btn-color-line ">Leia Mais</a></div>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-4 mb-xs-30">
-                                        <div className="blog-post">
-                                            <div className="post-media">
-                                                <img src={img2}  alt="" />
-                                                <span className="event-calender blog-date"> 08 <span>Fev</span> </span>
-                                            </div>
-                                            <div className="post-meta">
-                                                <span>por <a href="#">Admin</a>,</span>
-                                                <span>
-                                                    <a href="#">
-                                                      <i className="fa fa-comment-o"></i> 15
-                                                    </a>,
-                                                  </span>
-                                                <span>
-                                                    <a href="#"><i className="fa fa-heart-o"></i> 39</a>,
-                                                </span>
-                                            </div>
-                                            <div className="post-header">
-                                                <h4><a href="#">Maecenas nec odio ante varcy tincidunt</a></h4>
-                                            </div>
-                                            <div className="post-entry">
-                                                <p>Perspiciatis unde omnis iste natus doxes sit voluptatem accusantium dantiumeaque ipsa quae ab illos</p>
-                                            </div>
-                                            <div className="post-more-link pull-left">
-                                                <a href="#" className="btn btn-md btn-color-line ">Leia Mais</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-4 mb-xs-30">
-                                        <div className="blog-post">
-                                            <div className="post-media">
-                                                <img src={img1}  alt="" />
-                                                <span className="event-calender blog-date"> 08 <span>Jan</span> </span>
-                                            </div>
-                                            <div className="post-meta">
-                                                <span>por <a href="#">Admin</a>,</span>
-                                                <span>
-                                                <a href="#"><i className="fa fa-comment-o"></i> 15</a>,
-                                            </span>
-                                                <span>
-                                                    <a href="#"><i className="fa fa-heart-o"></i> 39</a>,
-                                                </span>
-                                            </div>
-                                            <div className="post-header">
-                                                <h4><a href="#">Maecenas nec odio ante varcy tincidunt</a></h4>
-                                            </div>
-                                            <div className="post-entry">
-                                                <p>Perspiciatis unde omnis iste natus doxes sit voluptatem accusantium dantiumeaque ipsa quae ab illos</p>
-                                            </div>
-                                            <div className="post-more-link pull-left">
-                                                <a href="#" className="btn btn-md btn-color-line ">Leia Mais</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {this.listaPosts()}
                                 </div>
                             </div>
                         </div>

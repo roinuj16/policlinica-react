@@ -4,6 +4,7 @@ import { Router, Route, Redirect, hashHistory } from 'react-router'
 import Home from '../paginas/home/home'
 import Sobre from '../paginas/sobre/sobre'
 import Especialidades from '../paginas/especialidades/especialidades'
+import EspecialidadesDetalhes from '../paginas/especialidades/especialidadesDetalhes'
 import Convenios from '../paginas/convenios/convenios'
 import Informativo from '../paginas/informativo/informativo'
 import Contato from '../paginas/contato/contato'
@@ -14,6 +15,7 @@ export default props => (
         <Route path='/' component={Home} />
         <Route path='/sobre' component={Sobre} />
         <Route path='/especialidades' component={Especialidades} />
+        <Route path='especialidades-detalhes/:id' component={EspecialidadesDetalhes} />
         <Route path='/convenios' component={Convenios} />
         <Route path='/informativo' component={Informativo} />
         <Route path='/contato' component={Contato} />
