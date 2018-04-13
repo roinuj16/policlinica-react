@@ -7,6 +7,7 @@ import Especialidades from '../paginas/especialidades/especialidades'
 import EspecialidadesDetalhes from '../paginas/especialidades/especialidadesDetalhes'
 import Convenios from '../paginas/convenios/convenios'
 import Informativo from '../paginas/informativo/informativo'
+import InformativoDetalhes from '../paginas/informativo/informativoDetalhes'
 import Contato from '../paginas/contato/contato'
 import Cursos from '../paginas/cursos/cursos'
 
@@ -18,6 +19,7 @@ export default props => (
         <Route path='especialidades-detalhes/:id' component={EspecialidadesDetalhes} />
         <Route path='/convenios' component={Convenios} />
         <Route path='/informativo' component={Informativo} />
+        <Route path='informativo-detalhes/:id' component={InformativoDetalhes} />
         <Route path='/contato' component={Contato} />
         <Route path='/ead' component={Cursos} />
         <Route path='/semipresencial' component={Cursos} />

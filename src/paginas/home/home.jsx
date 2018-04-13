@@ -14,7 +14,7 @@ export default class Home extends Component {
                 <AboutHome/>
                 <EspecialidadesHome/>
                 <Atendimento/>
-                <Blog/>
+                <Blog limit={4}/>
             </div>
         )
     }

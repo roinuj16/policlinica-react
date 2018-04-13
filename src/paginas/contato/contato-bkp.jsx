@@ -50,6 +50,35 @@ export default class Contato extends Component {
                                 </div>
                             </div>
                         </div>
+                        <div className="row pt-80">
+                            <div className="col-sm-12">
+                                <h4>Dúvidas, sugestões e marcações:</h4>
+                                <p> Tire dúvidas envie sugestões e marque sua consulta</p>
+                                <form className="contact-form mt-45" id="contact">
+                                    <div className="row">
+                                        <div className="col-sm-6">
+                                            <div className="form-field">
+                                                <input className="input-sm form-full" id="name" type="text" name="form-name" placeholder="Nome"/>
+                                            </div>
+                                            <div className="form-field">
+                                                <input className="input-sm form-full" id="email" type="text" name="form-email" placeholder="Email" />
+                                            </div>
+                                            <div className="form-field">
+                                                <input className="input-sm form-full" id="sub" type="text" name="form-subject" placeholder="Assunto" />
+                                            </div>
+                                        </div>
+                                        <div className="col-sm-6">
+                                            <div className="form-field">
+                                                <textarea className="form-full" id="message" rows="7" name="form-message" placeholder="Menssagem" ></textarea>
+                                            </div>
+                                        </div>
+                                        <div className="col-sm-12 mt-30">
+                                            <button className="btn btn-md btn-color-line" type="button" id="submit" name="button">Enviar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </section>
             </div>

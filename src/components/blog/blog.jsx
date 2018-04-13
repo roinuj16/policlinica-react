@@ -10,11 +10,11 @@ export default class Blog extends Component {
         moment.locale('pt-br');
         super(props);
         this.state = { items: '' };
+        this.listaPosts = this.listaPosts.bind(this)
     }
 
     componentDidMount() {
         axios.get(`${myConfig.apiUrl}/post`).then(response => {
-            console.log('aqui', response.data.dados);
             this.setState({
                 ...this.state,
                 items: response.data.dados
@@ -24,11 +24,20 @@ export default class Blog extends Component {
         })
     }
 
-    // @TODO: Finalizar a listagem de posts
     listaPosts() {
-        const list = this.state.items || [];
+        let list = this.state.items || [];
+
+        //Limita a quantidade de post que será exibido
+        if (this.props.limit) {
+            const item = this.props.limit;
+            list = list.filter(function (elem, index, array) {
+                if (index < item) {
+                    return elem;
+                }
+            });
+        }
+
         return list.map(todo => {
-            console.log(todo.user.name);
             let dia = moment(todo.created_at).format('L').split('/')[1];
             let mes = moment(todo.created_at).format('MMM');
 
@@ -43,19 +52,18 @@ export default class Blog extends Component {
                             <span>por <a>{ todo.user.name }</a>,</span>
                         </div>
                         <div className="post-header">
-                            <h5><a>{ todo.titulo }</a></h5>
+                            <h5>{ todo.titulo }</h5>
                         </div>
                         <div className="post-entry">
                             <div dangerouslySetInnerHTML={{__html: todo.resumo}}/>
                         </div>
                         <div className="post-more-link pull-left">
-                            <a href="#" className="btn btn-md btn-color-line ">LeiaMais</a></div>
+                            <a href={`#/informativo-detalhes/${todo.id}`} className="btn btn-md btn-color-line ">LeiaMais</a></div>
                     </div>
                 </div>
             )
         })
     }
-
 
     render() {
         return (
