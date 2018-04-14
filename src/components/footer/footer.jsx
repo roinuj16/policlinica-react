@@ -26,23 +26,16 @@ export default props => (
                     </ul>
                 </div>
                 <div className="col-md-2 col-sm-6 col-xs-12 mb-sm-30">
-                    <h5>Links Úteis</h5>
-                    <ul className="link blog-link">
-                        <li><a href="#"><i className="fa fa-angle-double-right"></i> INCM </a></li>
-                        <li><a href="#"><i className="fa fa-angle-double-right"></i> Médis </a></li>
-                        <li><a href="#"><i className="fa fa-angle-double-right"></i> Mondial Assistance </a></li>
-                        <li><a href="#"><i className="fa fa-angle-double-right"></i> Multicare </a></li>
-                        <li><a href="#"><i className="fa fa-angle-double-right"></i> mDoctors </a></li>
-                    </ul>
+                    <h5>Horário de Atendimento</h5>
+                    <div className="opening">
+                        <p> Segunda - Sexta : <span>8:00 - 18:00</span> </p>
+                        <p> Sábado : <span>9:00 - 17:00</span> </p>
+                        <p> Domingo : <span>8:00 - 12:00</span> </p>
+                    </div>
                 </div>
                 <div className="col-md-4 col-sm-6 col-xs-12">
                     <div className="newsletter">
-                        <h5>Horário</h5>
-                        <div className="opening">
-                            <p> Segunda - Sext : <span>8:00 - 18:00</span> </p>
-                            <p> Sábado : <span>9:00 - 17:00</span> </p>
-                            <p> Domingo : <span>8:00 - 12:00</span> </p>
-                        </div>
+                        <h5>Redes Sociais</h5>
                         <div className="col-md-12">
                             <ul className="social-network social-circle">
                                 <li><a href="#" className="icoFacebook" title="Facebook"><i className="fa fa-facebook-f"></i></a></li>

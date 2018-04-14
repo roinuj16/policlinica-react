@@ -41,7 +41,7 @@
 .top-bar-section,
 .nf-carousel-theme .owl-controls .owl-buttons .owl-prev,
 .nf-carousel-theme .owl-controls .owl-buttons .owl-next {
-    background: #39A027;
+    background: #005231;
 }
 .ui-datepicker-prev,
 .ui-datepicker-next {
@@ -82,6 +82,13 @@
 .why-choose > div:nth-child(4) {
     background: #009152;
 }
+.why-choose > div:nth-child(5) {
+    background: #005231;
+}
+.why-choose > div:nth-child(6) {
+    background: #009152;
+}
+
 /*
 ============== Text Color====================
 */

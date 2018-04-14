@@ -62,32 +62,70 @@ export default class AboutHome extends Component {
                         </div>
                     </div>
                     <div className="row why-choose mt-30">
-                        <div className="col-md-3 col-sm-6 text-center">
+                        <div className="col-md-4 col-sm-6 text-center">
                             <div className="padding-20">
-                                <div className="page-icon-top"><i className={`fa ${this.state.icone1 } fa-4x`}></i></div>
-                                <h5>{ this.state.label1 }</h5>
-                                <p>{ this.state.infolable1 }</p>
+                                <a href="#/especialidades">
+                                    <div className="page-icon-top">
+                                        <i className='fa fa-heartbeat fa-4x'></i>
+                                    </div>
+                                    <h5>Especialidades</h5>
+                                </a>
+                                    <p>Veja a lista com nossas especialidades</p>
                             </div>
                         </div>
-                        <div className="col-md-3 col-sm-6 text-center">
+                        <div className="col-md-4 col-sm-6 text-center">
                             <div className="padding-20">
-                                <div className="page-icon-top"><i className={`fa ${this.state.icone2 } fa-4x`}></i></div>
-                                <h5>{ this.state.label2 }</h5>
-                                <p>{ this.state.infolable2 }</p>
+                                <a href="#/especialidades">
+                                    <div className="page-icon-top">
+                                        <i className={`fa ${this.state.icone2 } fa-4x`}></i>
+                                    </div>
+                                    <h5>Cursos</h5>
+                                </a>
+                                    <p>Veja a lista com nossas especialidades</p>
                             </div>
                         </div>
-                        <div className="col-md-3 col-sm-6  text-center">
+                        <div className="col-md-4 col-sm-6  text-center">
                             <div className="padding-20">
-                                <div className="page-icon-top"><i className={`fa ${this.state.icone3 } fa-4x`}></i></div>
-                                <h5>{ this.state.label3 }</h5>
-                                <p>{ this.state.infolable3 }</p>
+                                <a>
+                                    <div className="page-icon-top">
+                                        <i className='fa fa-list-alt fa-4x'></i>
+                                    </div>
+                                    <h5>Resultados Online</h5>
+                                </a>
+                                    <p>Veja a lista com nossas especialidades</p>
                             </div>
                         </div>
-                        <div className="col-md-3 col-sm-6 text-center">
+                        <div className="col-md-4 col-sm-6 text-center">
                             <div className="padding-20">
-                                <div className="page-icon-top"><i className={`fa ${this.state.icone4 } fa-4x`}></i></div>
-                                <h5>{ this.state.label4 }</h5>
-                                <p>{ this.state.infolable4 }</p>
+                                <a href="#/convenios">
+                                    <div className="page-icon-top">
+                                        <i className='fa fa-medkit fa-4x'></i>
+                                    </div>
+                                    <h5>Convênios</h5>
+                                </a>
+                                    <p>Veja a lista com nossos convênios</p>
+                            </div>
+                        </div>
+                        <div className="col-md-4 col-sm-6 text-center">
+                            <div className="padding-20">
+                                <a href="#/informativo">
+                                    <div className="page-icon-top">
+                                        <i className='fa fa-newspaper-o fa-4x'></i>
+                                    </div>
+                                    <h5>Informativo</h5>
+                                </a>
+                                <p>Veja nossa lista de Informações</p>
+                            </div>
+                        </div>
+                        <div className="col-md-4 col-sm-6 text-center">
+                            <div className="padding-20">
+                                <a href="#">
+                                    <div className="page-icon-top">
+                                        <i className='fa fa-map-marker fa-4x'></i>
+                                    </div>
+                                    <h5>Contato e Localização</h5>
+                                </a>
+                                <p>Fale conosco e veja nossa localização</p>
                             </div>
                         </div>
                     </div>

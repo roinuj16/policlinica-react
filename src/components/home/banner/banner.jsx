@@ -19,19 +19,19 @@ var settings = {
 };
 
 export default props => (
-    <div className="container">
+    <div className="">
         <Slider {...settings}>
             <div>
-                <img src={img1} />
+                <a href="#"><img src={img1} /></a>
             </div>
             <div>
-                <img src={img2} />
+                <a href="#"><img src={img2} /></a>
             </div>
             <div>
-                <img src={img3} />
+                <a href="#"><img src={img3} /></a>
             </div>
             <div>
-                <img src={img1} />
+                <a href="#"><img src={img1} /></a>
             </div>
         </Slider>
     </div>

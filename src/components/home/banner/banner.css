@@ -34,7 +34,7 @@ h3 {
     padding: 10px;
 }
 .slick-slide img {
-    border: 5px solid #fff;
+    /*border: 5px solid #fff;*/
     display: block;
     margin: auto;
 }
@@ -42,7 +42,7 @@ h3 {
     border: 0;
 }
 .slick-slider {
-    margin: 30px auto 50px;
+    /*margin: 30px auto 50px;*/
 }
 .slick-dots {
     margin-left: 0;
@@ -82,18 +82,18 @@ h3 {
 .slick-vertical .slick-slide {
     height: 180px;
 }
-.slick-arrow {
-    background-color: grey;
-    /* color: black; */
-}
-.slick-arrow:hover {
-    background-color: grey;
-}
-/* .slick-prev {
+/*.slick-arrow {*/
+    /*background-color: grey;*/
+    /*!* color: black; *!*/
+/*}*/
+/*.slick-arrow:hover {*/
+    /*background-color: grey;*/
+/*}*/
+ .slick-prev {
   z-index: 100;
   left: 20px !important;
 }
 .slick-next {
   z-index: 100;
   right: 20px !important;
-} */
+}
