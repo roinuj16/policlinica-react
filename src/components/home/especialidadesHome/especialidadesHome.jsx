@@ -23,7 +23,7 @@ export default class Services extends Component {
         const list = this.state.items || [];
         return list.map(todo => (
             <div className="col-xs-12 col-sm-3" key={todo.id}>
-                <h5><a href={`#/especialidades-detalhes/${todo.id}`}><i className="fa fa-heartbeat"></i> {todo.nome}</a></h5>
+                <h5><a href={`#/especialidades`}><i className="fa fa-heartbeat"></i> {todo.nome}</a></h5>
             </div>
         ))
     }

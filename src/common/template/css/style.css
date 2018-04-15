@@ -1093,7 +1093,7 @@ form label.error {
     border: none !important;
 }
 .bg-img {
-    /*background: url(../images/sub-page-banner.jpg) 0 0 no-repeat;*/
+    background: url(../images/sub-page-banner.jpg) 0 0 no-repeat;
 }
 /*-------------------------------------------------------------------------------------------*/
 /* HEADER         ||---------------------------- */
