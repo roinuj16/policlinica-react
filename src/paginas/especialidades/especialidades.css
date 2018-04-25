@@ -81,7 +81,6 @@ section .section-title
     position: absolute;
     top: 0;
     left: 0;
-
     -webkit-transform: rotateY(-180deg);
     -moz-transform: rotateY(-180deg);
     -o-transform: rotateY(-180deg);
@@ -109,6 +108,7 @@ section .section-title
 .backside
 {
     height: 100%;
+    width: 100%;
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     -ms-backface-visibility: hidden;

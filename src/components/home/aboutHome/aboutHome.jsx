@@ -11,20 +11,7 @@ export default class AboutHome extends Component {
 
         this.state = {
             titulo: '',
-            descricao: '',
-            icone1: '',
-            icone2: '',
-            icone3: '',
-            icone4: '',
-            label1: '',
-            label2: '',
-            label3: '',
-            label4: '',
-            infolable1: '',
-            infolable2: '',
-            infolable3: '',
-            infolable4: '',
-
+            descricao: ''
         };
 
         this.getData();
@@ -35,19 +22,6 @@ export default class AboutHome extends Component {
             ...this.state,
             titulo: resp.data.dados.titulo,
             descricao: resp.data.dados.descricao,
-            icone1: resp.data.dados.classe_css_1,
-            icone2: resp.data.dados.classe_css_2,
-            icone3: resp.data.dados.classe_css_3,
-            icone4: resp.data.dados.classe_css_4,
-            label1: resp.data.dados.label_1,
-            label2: resp.data.dados.label_2,
-            label3: resp.data.dados.label_3,
-            label4: resp.data.dados.label_4,
-            infolable1: resp.data.dados.info_label_1,
-            infolable2: resp.data.dados.info_label_2,
-            infolable3: resp.data.dados.info_label_3,
-            infolable4: resp.data.dados.info_label_4,
-
         }));
     }
 
@@ -77,7 +51,7 @@ export default class AboutHome extends Component {
                             <div className="padding-20">
                                 <a href="#/especialidades">
                                     <div className="page-icon-top">
-                                        <i className={`fa ${this.state.icone2 } fa-4x`}></i>
+                                        <i className='fa fa-book fa-4x'></i>
                                     </div>
                                     <h5>Cursos</h5>
                                 </a>

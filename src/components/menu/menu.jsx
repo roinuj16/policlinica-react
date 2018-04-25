@@ -61,7 +61,6 @@ export default props => (
                                     <ul className="sub-nav">
                                         <li> <a href="#/ead">Ensino a Distância EAD</a> </li>
                                         <li> <a href="#/semipresencial">Ensino Semipresencial</a> </li>
-                                        <li> <a href="#presencial">Ensino Presencial</a> </li>
                                     </ul>
                                 </li>
                                 <li>

@@ -13,8 +13,7 @@ export default class Cursos extends Component {
                         <div className="col-md-3 col-sm-6">
                             <span className="thumbnail">
                                 <img src="http://placehold.it/500x400" alt="..."/>
-                                <h4>Product Tittle</h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+                                <h4 className='text-center'>Product Tittle</h4>
                                 <hr className="line" />
                                 <div className="row">
                                     <div className="col-md-6 col-sm-6 curso-mobile">
