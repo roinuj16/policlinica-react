@@ -59,7 +59,9 @@ export default props => (
                                     <a>Cursos</a>
                                     <i className="ion-ios-plus-empty visible-xs"></i>
                                     <ul className="sub-nav">
-                                        <li> <a href="#/ead">Ensino a Distância EAD</a> </li>
+                                        {/*@TODO: ARRUMAR O MENU PARA CHAMAR CURSOS DIFERENTES*/}
+                                        {/*<li> <a href="#/ead">Ensino a Distância EAD</a> </li>*/}
+                                        <li> <a href={`#/ead`}>Ensino a Distância EAD</a> </li>
                                         <li> <a href="#/semipresencial">Ensino Semipresencial</a> </li>
                                     </ul>
                                 </li>

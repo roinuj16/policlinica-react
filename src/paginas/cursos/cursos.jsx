@@ -1,210 +1,64 @@
 import React, { Component } from 'react'
 
+import axios from 'axios'
+import { myConfig } from '../../main/consts'
+
 import Breadcrumb from '../../components/breadcrumb/breadcrumb'
 import './cursos.css'
 
 export default class Cursos extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { items: '' };
+        this.listaCursos = this.listaCursos.bind(this)
+    }
+
+    componentWillMount() {
+        console.log('props', this.props);
+        let tipo = this.props.tipo;
+
+        axios.get(`${myConfig.apiUrl}/cursos/${tipo}`).then(response => {
+            console.log('retorno', response.data);
+            this.setState({
+                ...this.state,
+                items: response.data.dados
+            });
+        }).catch(function (error) {
+            console.log(error);
+        })
+    }
+
+    listaCursos() {
+        let list = this.state.items || [];
+        return list.map(todo => {
+            return (
+                <div className="col-md-3 col-sm-6" key={todo.id}>
+                    <span className="thumbnail">
+                        <img src={ todo.path_image } alt={ todo.nome }/>
+                        <h4 className='text-center'>{ todo.nome }</h4>
+                        <hr className="line" />
+                        <div className="row">
+                            <div className="col-md-3 col-sm-4 curso-mobile">
+                                <p className="price">{ todo.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) }</p>
+                            </div>
+                            <div className="col-md-9 col-sm-6">
+                                <button className="btn btn-info right" > COMPRAR</button>
+                            </div>
+                        </div>
+                    </span>
+                </div>
+            )
+        })
+    }
+
+
     render() {
         return (
             <div>
                 <Breadcrumb name='Cursos'/>
                 <div className="container pt-80">
                     <div className="row">
-                        <div className="col-md-3 col-sm-6">
-                            <span className="thumbnail">
-                                <img src="http://placehold.it/500x400" alt="..."/>
-                                <h4 className='text-center'>Product Tittle</h4>
-                                <hr className="line" />
-                                <div className="row">
-                                    <div className="col-md-6 col-sm-6 curso-mobile">
-                                        <p className="price">$29,90</p>
-                                    </div>
-                                    <div className="col-md-6 col-sm-6">
-                                        <button className="btn btn-success right" > COMPRAR</button>
-                                    </div>
-                                </div>
-                            </span>
-                        </div>
-                        <div className="col-md-3 col-sm-6">
-                            <span className="thumbnail">
-                                <img src="http://placehold.it/500x400" alt="..."/>
-                                <h4>Product Tittle</h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                                <hr className="line" />
-                                <div className="row">
-                                    <div className="col-md-6 col-sm-6">
-                                        <p className="price">$29,90</p>
-                                    </div>
-                                    <div className="col-md-6 col-sm-6">
-                                        <button className="btn btn-success right" > COMPRAR</button>
-                                    </div>
-                                </div>
-                            </span>
-                        </div>
-                        <div className="col-md-3 col-sm-6">
-                            <span className="thumbnail">
-                                <img src="http://placehold.it/500x400" alt="..."/>
-                                <h4>Product Tittle</h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                                <hr className="line" />
-                                <div className="row">
-                                    <div className="col-md-6 col-sm-6">
-                                        <p className="price">$29,90</p>
-                                    </div>
-                                    <div className="col-md-6 col-sm-6">
-                                        <button className="btn btn-success right" > COMPRAR</button>
-                                    </div>
-                                </div>
-                            </span>
-                        </div>
-                        <div className="col-md-3 col-sm-6">
-                            <span className="thumbnail">
-                                <img src="http://placehold.it/500x400" alt="..."/>
-                                <h4>Product Tittle</h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                                <hr className="line" />
-                                <div className="row">
-                                    <div className="col-md-6 col-sm-6">
-                                        <p className="price">$29,90</p>
-                                    </div>
-                                    <div className="col-md-6 col-sm-6">
-                                        <button className="btn btn-success right" > COMPRAR</button>
-                                    </div>
-                                </div>
-                            </span>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-3 col-sm-6">
-                            <span className="thumbnail">
-                                <img src="http://placehold.it/500x400" alt="..."/>
-                                <h4>Product Tittle</h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                                <hr className="line" />
-                                <div className="row">
-                                    <div className="col-md-6 col-sm-6 curso-mobile">
-                                        <p className="price">$29,90</p>
-                                    </div>
-                                    <div className="col-md-6 col-sm-6">
-                                        <button className="btn btn-success right" > COMPRAR</button>
-                                    </div>
-                                </div>
-                            </span>
-                        </div>
-                        <div className="col-md-3 col-sm-6">
-                            <span className="thumbnail">
-                                <img src="http://placehold.it/500x400" alt="..."/>
-                                <h4>Product Tittle</h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                                <hr className="line" />
-                                <div className="row">
-                                    <div className="col-md-6 col-sm-6">
-                                        <p className="price">$29,90</p>
-                                    </div>
-                                    <div className="col-md-6 col-sm-6">
-                                        <button className="btn btn-success right" > COMPRAR</button>
-                                    </div>
-                                </div>
-                            </span>
-                        </div>
-                        <div className="col-md-3 col-sm-6">
-                            <span className="thumbnail">
-                                <img src="http://placehold.it/500x400" alt="..."/>
-                                <h4>Product Tittle</h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                                <hr className="line" />
-                                <div className="row">
-                                    <div className="col-md-6 col-sm-6">
-                                        <p className="price">$29,90</p>
-                                    </div>
-                                    <div className="col-md-6 col-sm-6">
-                                        <button className="btn btn-success right" > COMPRAR</button>
-                                    </div>
-                                </div>
-                            </span>
-                        </div>
-                        <div className="col-md-3 col-sm-6">
-                            <span className="thumbnail">
-                                <img src="http://placehold.it/500x400" alt="..."/>
-                                <h4>Product Tittle</h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                                <hr className="line" />
-                                <div className="row">
-                                    <div className="col-md-6 col-sm-6">
-                                        <p className="price">$29,90</p>
-                                    </div>
-                                    <div className="col-md-6 col-sm-6">
-                                        <button className="btn btn-success right" > COMPRAR</button>
-                                    </div>
-                                </div>
-                            </span>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-3 col-sm-6">
-                            <span className="thumbnail">
-                                <img src="http://placehold.it/500x400" alt="..."/>
-                                <h4>Product Tittle</h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                                <hr className="line" />
-                                <div className="row">
-                                    <div className="col-md-6 col-sm-6 curso-mobile">
-                                        <p className="price">$29,90</p>
-                                    </div>
-                                    <div className="col-md-6 col-sm-6">
-                                        <button className="btn btn-success right" > COMPRAR</button>
-                                    </div>
-                                </div>
-                            </span>
-                        </div>
-                        <div className="col-md-3 col-sm-6">
-                            <span className="thumbnail">
-                                <img src="http://placehold.it/500x400" alt="..."/>
-                                <h4>Product Tittle</h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                                <hr className="line" />
-                                <div className="row">
-                                    <div className="col-md-6 col-sm-6">
-                                        <p className="price">$29,90</p>
-                                    </div>
-                                    <div className="col-md-6 col-sm-6">
-                                        <button className="btn btn-success right" > COMPRAR</button>
-                                    </div>
-                                </div>
-                            </span>
-                        </div>
-                        <div className="col-md-3 col-sm-6">
-                            <span className="thumbnail">
-                                <img src="http://placehold.it/500x400" alt="..."/>
-                                <h4>Product Tittle</h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                                <hr className="line" />
-                                <div className="row">
-                                    <div className="col-md-6 col-sm-6">
-                                        <p className="price">$29,90</p>
-                                    </div>
-                                    <div className="col-md-6 col-sm-6">
-                                        <button className="btn btn-success right" > COMPRAR</button>
-                                    </div>
-                                </div>
-                            </span>
-                        </div>
-                        <div className="col-md-3 col-sm-6">
-                            <span className="thumbnail">
-                                <img src="http://placehold.it/500x400" alt="..."/>
-                                <h4>Product Tittle</h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                                <hr className="line" />
-                                <div className="row">
-                                    <div className="col-md-6 col-sm-6">
-                                        <p className="price">$29,90</p>
-                                    </div>
-                                    <div className="col-md-6 col-sm-6">
-                                        <button className="btn btn-success right" > COMPRAR</button>
-                                    </div>
-                                </div>
-                            </span>
-                        </div>
+                        {this.listaCursos()}
                     </div>
                 </div>
             </div>

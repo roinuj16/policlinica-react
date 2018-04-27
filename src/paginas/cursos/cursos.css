@@ -6,13 +6,14 @@ p{
     margin-top: 5px;
 }
 .price{
-    font-size: 30px;
+    font-size: 24px;
     margin: 0 auto;
     color: #333;
+    margin-top: 5px;
 }
 .right{
     float:right;
-    border-bottom: 2px solid #4B8E4B;
+    border-bottom: 2px solid #269abc;
 }
 .thumbnail{
     opacity:0.70;
@@ -26,6 +27,11 @@ p{
 .line{
     margin-bottom: 5px;
 }
+
+.btn {
+    border-radius: 10px;
+}
+
 @media screen and (max-width: 770px) {
     .right{
         float:left;
