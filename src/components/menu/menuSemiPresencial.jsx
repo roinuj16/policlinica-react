@@ -1,9 +1,9 @@
 import React from 'react'
 
-import Cursos from '../../paginas/cursos/cursos'
+import CursosServicos from '../../paginas/cursos/cursosServicos'
 
 export default props =>(
     <div>
-        <Cursos tipo='2' />
+        <CursosServicos tipo='2' />
     </div>
 );

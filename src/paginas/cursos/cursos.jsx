@@ -2,23 +2,21 @@ import React, { Component } from 'react'
 
 import axios from 'axios'
 import { myConfig } from '../../main/consts'
-
-import Breadcrumb from '../../components/breadcrumb/breadcrumb'
+import BtnAddCart from './btnAddCart'
 import './cursos.css'
 
 export default class Cursos extends Component {
     constructor(props) {
         super(props);
-        this.state = { items: '' };
+        this.state = { items: ''};
         this.listaCursos = this.listaCursos.bind(this)
+        this.validaStorage = this.validaStorage.bind(this)
     }
 
     componentWillMount() {
-        console.log('props', this.props);
         let tipo = this.props.tipo;
 
         axios.get(`${myConfig.apiUrl}/cursos/${tipo}`).then(response => {
-            console.log('retorno', response.data);
             this.setState({
                 ...this.state,
                 items: response.data.dados
@@ -26,6 +24,25 @@ export default class Cursos extends Component {
         }).catch(function (error) {
             console.log(error);
         })
+    }
+
+    /**
+     * Valida se curso já esta adicionado no storage/carrinho
+     * @param idCurso
+     * @returns {boolean}
+     */
+    validaStorage(idCurso) {
+        let dadosLocalStorage = localStorage.getItem('curso');
+        if(dadosLocalStorage !== null) {
+            let dados = JSON.parse(dadosLocalStorage);
+            let index = dados.findIndex(val => val.id === idCurso);
+            if(index < 0) {
+                return true;
+            }
+            return false;
+        }
+        // @TODO: Validar se precisa desse return
+        return true;
     }
 
     listaCursos() {
@@ -38,12 +55,16 @@ export default class Cursos extends Component {
                         <h4 className='text-center'>{ todo.nome }</h4>
                         <hr className="line" />
                         <div className="row">
-                            <div className="col-md-3 col-sm-4 curso-mobile">
+                            <div className="col-md-12 text-center col-sm-4 curso-mobile">
                                 <p className="price">{ todo.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) }</p>
                             </div>
-                            <div className="col-md-9 col-sm-6">
-                                <button className="btn btn-info right" > COMPRAR</button>
-                            </div>
+                        </div>
+                        <div className="row">
+                            <BtnAddCart add={this.validaStorage(todo.id)}>
+                                <div className="col-md-12 col-sm-6 text-center">
+                                    <a onClick={() => this.props.addCarrinho(todo)} className="btn btn-md btn-color-line js-btn">Adicionar ao Carrinho</a>
+                                </div>
+                            </BtnAddCart>
                         </div>
                     </span>
                 </div>
@@ -51,11 +72,10 @@ export default class Cursos extends Component {
         })
     }
 
-
     render() {
         return (
             <div>
-                <Breadcrumb name='Cursos'/>
+
                 <div className="container pt-80">
                     <div className="row">
                         {this.listaCursos()}

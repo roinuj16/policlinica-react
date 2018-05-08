@@ -7,7 +7,7 @@ p{
 }
 .price{
     font-size: 24px;
-    margin: 0 auto;
+    margin: 5px auto;
     color: #333;
     margin-top: 5px;
 }
@@ -15,6 +15,12 @@ p{
     float:right;
     border-bottom: 2px solid #269abc;
 }
+
+.js-btn {
+    margin-left: 2%;
+}
+
+
 .thumbnail{
     opacity:0.70;
     -webkit-transition: all 0.5s;
@@ -41,4 +47,30 @@ p{
     .curso-mobile {
         margin-bottom: 100px;
     }
+}
+
+.js-main-card {
+    border: 1px solid #cccccc;
+    width: 100%;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.js-carrinho-zerado {
+    text-align: center;
+}
+
+.js-carrinho-zerado p{
+    color: #cccccc;
+}
+
+.js-carrinho-zerado .txt-vazio{
+    color: #cccccc;
+    font-size: 17px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.js-carrinho-zerado .icone-vazio{
+    float: left;
+    margin-left: 50%;
 }

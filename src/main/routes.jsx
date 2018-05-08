@@ -8,9 +8,9 @@ import Convenios from '../paginas/convenios/convenios'
 import Informativo from '../paginas/informativo/informativo'
 import InformativoDetalhes from '../paginas/informativo/informativoDetalhes'
 import Contato from '../paginas/contato/contato'
-import Cursos from '../paginas/cursos/cursos'
 import Ead from '../components/menu/menuEad'
 import SemiPresencial from '../components/menu/menuSemiPresencial'
+import CarrinhoServico from '../paginas/cursos/carrinhoServico'
 
 export default props => (
     <Router history={hashHistory}>
@@ -23,7 +23,8 @@ export default props => (
         <Route path='/contato' component={Contato} />
         <Route path='/ead' component={Ead} />
         <Route path='/semipresencial' component={SemiPresencial} />
-        <Route path='/presencial' component={Cursos} />
+        <Route path='/carrinho/:id' component={InformativoDetalhes} />
+        <Route path='/carrinho-servico' component={CarrinhoServico} />
         <Redirect from='*' to='/' />
     </Router>
 )

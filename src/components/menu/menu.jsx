@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from '../../assets/images/logo2_.png'
+import './menu.css'
 
 export default props => (
     <header id="header" className="header header-1">
@@ -35,7 +36,7 @@ export default props => (
             </div>
         </div>
         <div className="nav-wrap">
-            <div className="container">
+            <div className="container js-menu">
                 <div className="row">
                     <div className="col-sm-3">
                         <div className="logo">
@@ -59,8 +60,6 @@ export default props => (
                                     <a>Cursos</a>
                                     <i className="ion-ios-plus-empty visible-xs"></i>
                                     <ul className="sub-nav">
-                                        {/*@TODO: ARRUMAR O MENU PARA CHAMAR CURSOS DIFERENTES*/}
-                                        {/*<li> <a href="#/ead">Ensino a Distância EAD</a> </li>*/}
                                         <li> <a href={`#/ead`}>Ensino a Distância EAD</a> </li>
                                         <li> <a href="#/semipresencial">Ensino Semipresencial</a> </li>
                                     </ul>
@@ -78,6 +77,14 @@ export default props => (
                                     <i className="ion-ios-plus-empty visible-xs"></i>
                                 </li>
                                 <li><a href="#/contato">Contato</a></li>
+                                <li>
+                                    <a href="#/carrinho-servico">
+                                        <div className="qntde_cart">
+                                            <i className="fa fa-shopping-cart fa-2x pull-left"></i>
+                                            {/*<span>xxx</span>*/}
+                                        </div>
+                                    </a>
+                                </li>
                             </ul>
                         </nav>
                     </div>

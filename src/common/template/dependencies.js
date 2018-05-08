@@ -17,3 +17,4 @@ import '../../assets/fonts/Flaticon.woff'
 import 'modules/bootstrap/dist/js/bootstrap.min'
 import './js/custom.js'
 
+
