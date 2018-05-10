@@ -301,3 +301,14 @@ hr{
     border-radius: 7px;
     margin:5px;
 }
+
+.brand {
+    margin-left: -25px;
+    font-size: 18px;
+}
+
+.linhavazia {
+    width: 100%;
+    padding-bottom: 46px;
+    float: left;
+}

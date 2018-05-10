@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 
 import CarrinhoView from './carrinhoView'
 
 import axios from 'axios'
-import { myConfig } from '../../main/consts'
+import {myConfig} from '../../main/consts'
 import './form-pagamento.css'
 import If from '../../components/if/if'
-import { validaCPF, checkMail  } from "../../common/helpers/functionsValidade";
+import {validaCPF, checkMail} from "../../common/helpers/functionsValidade";
 
 import ShowMessage from '../../components/formulario/showMessage'
 
@@ -20,14 +20,14 @@ export default class FormularioPagamento extends Component {
             num_cpf: '',
             email: '',
             num_telefone: '',
-            car_nome:'',
-            car_numero:'',
-            car_cvv:'',
-            car_mes:'',
-            car_ano:'',
+            car_nome: '',
+            car_numero: '',
+            car_cvv: '',
+            car_mes: '',
+            car_ano: '',
             listaCursos: [],
             errorMessage: '',
-            successMessage:false
+            successMessage: false
 
         };
         this.handleChange = this.handleChange.bind(this);
@@ -36,6 +36,7 @@ export default class FormularioPagamento extends Component {
         this.paymentMode = this.paymentMode.bind(this);
         this.chengePaymentMode = this.chengePaymentMode.bind(this);
         this.validaForm = this.validaForm.bind(this);
+        this.getBrand = this.getBrand.bind(this);
     }
 
     componentWillMount() {
@@ -44,18 +45,35 @@ export default class FormularioPagamento extends Component {
             listaCursos: this.props.listaCursos,
         });
 
+        //Inicia sessão com pagseguro
+        axios.post(`${myConfig.apiUrl}/init-session-ps`).then(response => {
 
-        // axios.post(`${myConfig.apiUrl}/init-session-ps`).then(response => {
-        //
-        //     //@TODO: Sessão iniciada. Continuar aqui...
-        //     console.log(response.data.idSession[0]);
-        //     //Inicia a sessão com pagseguro
-        //     PagSeguroDirectPayment.setSessionId(response.data.idSession[0]);
-        //
-        //     this.getBrand();
-        // }).catch(function (error) {
-        //     console.log(error);
-        // });
+            const pgSessionId = response.data.idSession[0];
+            console.log('idSession pagseguro', pgSessionId);
+
+            //Salva sessão pagseguro no localStorage
+            localStorage.setItem('pgSessionId', pgSessionId);
+
+            //Salva sessão no pagseguro
+            PagSeguroDirectPayment.setSessionId(pgSessionId)
+
+        }).catch(function (error) {
+            console.log(error);
+        });
+    }
+
+    getBrand(numCard) {
+        PagSeguroDirectPayment.getBrand({
+            cardBin: numCard,
+            success:(response) => {
+                this.setState({
+                    ...this.state,
+                    car_nome: response.brand.name
+                });
+            },
+            error: (response) => console.log('error', response),
+            complete: (response) => console.log('complete', response)
+        });
     }
 
     /**
@@ -66,7 +84,7 @@ export default class FormularioPagamento extends Component {
         const target = e.target;
         const value = target.value;
         const name = target.name;
-
+        
         //Remove classe de erro.
         target.parentNode.classList.remove('has-error');
 
@@ -75,7 +93,9 @@ export default class FormularioPagamento extends Component {
             [name]: value,
             errorMessage: ''
         }, () => {
-            // console.log("New state in ASYNC callback:", this.state.nome.length);
+            if (name === 'car_numero' && value.length >= 6) {
+                this.getBrand(value);
+            }
         });
     }
 
@@ -92,8 +112,9 @@ export default class FormularioPagamento extends Component {
         //     return false;
         // }
 
-        if(this.state.paymentMode === 'cartao') {
-            this.validaCartao();            
+        //Valida dados do Cartão
+        if (this.state.paymentMode === 'cartao') {
+            this.validaCartao();
         }
 
 
@@ -105,7 +126,7 @@ export default class FormularioPagamento extends Component {
 
     validaForm() {
         //Valida nome
-        if(this.state.nome === ''){
+        if (this.state.nome === '') {
             let elem = document.querySelector('#nome');
             elem.parentNode.classList.add('has-error');
             elem.focus();
@@ -117,7 +138,7 @@ export default class FormularioPagamento extends Component {
         }
 
         //Valida cpf
-        if(this.state.num_cpf === ''){
+        if (this.state.num_cpf === '') {
             let elem = document.querySelector('#num_cpf');
             elem.parentNode.classList.add('has-error');
             elem.focus();
@@ -126,7 +147,7 @@ export default class FormularioPagamento extends Component {
                 errorMessage: 'Campo Obrigatóriodd'
             });
             return false;
-        }else if(validaCPF(this.state.num_cpf) === false) {
+        } else if (validaCPF(this.state.num_cpf) === false) {
             let elem = document.querySelector('#num_cpf');
             elem.parentNode.classList.add('has-error');
             elem.focus();
@@ -138,7 +159,7 @@ export default class FormularioPagamento extends Component {
         }
 
         //Valida Email
-        if(this.state.email === ''){
+        if (this.state.email === '') {
             let elem = document.querySelector('#email');
             elem.parentNode.classList.add('has-error');
             elem.focus();
@@ -147,7 +168,7 @@ export default class FormularioPagamento extends Component {
                 errorMessage: 'Campo Obrigatório'
             });
             return false;
-        }else if(checkMail(this.state.email) === false) {
+        } else if (checkMail(this.state.email) === false) {
             let elem = document.querySelector('#email');
             elem.parentNode.classList.add('has-error');
             elem.focus();
@@ -159,7 +180,7 @@ export default class FormularioPagamento extends Component {
         }
 
         //Valida Telefone
-        if(this.state.num_telefone === '') {
+        if (this.state.num_telefone === '') {
             let elem = document.querySelector('#num_telefone');
             elem.parentNode.classList.add('has-error');
             elem.focus();
@@ -169,14 +190,17 @@ export default class FormularioPagamento extends Component {
             });
             return false;
         }
-
         return true;
     }
 
+    /**
+     * Valida dados do cartão
+     * @returns {boolean}
+     */
     validaCartao() {
 
         //Valida nome
-        if(this.state.nome === ''){
+        if (this.state.car_nome === '') {
             let elem = document.querySelector('#car_nome');
             elem.parentNode.classList.add('has-error');
             elem.focus();
@@ -188,8 +212,8 @@ export default class FormularioPagamento extends Component {
         }
 
         //Valida número
-        if(this.state.nome === ''){
-            let elem = document.querySelector('#car_numero');
+        if (this.state.car_numero === '') {
+            let elem = document.querySelector('#numeroCartao');
             elem.parentNode.classList.add('has-error');
             elem.focus();
             this.setState({
@@ -200,7 +224,7 @@ export default class FormularioPagamento extends Component {
         }
 
         //Valida cvv
-        if(this.state.nome === ''){
+        if (this.state.car_cvv === '') {
             let elem = document.querySelector('#car_cvv');
             elem.parentNode.classList.add('has-error');
             elem.focus();
@@ -210,21 +234,46 @@ export default class FormularioPagamento extends Component {
             });
             return false;
         }
+
+        //Valida mes
+        if (this.state.car_mes === '') {
+            let elem = document.querySelector('#car_mes');
+            elem.parentNode.classList.add('has-error');
+            elem.focus();
+            this.setState({
+                ...this.state,
+                errorMessage: 'Campo Obrigatório'
+            });
+            return false;
+        }
+
+        //Valida ano
+        if (this.state.car_ano === '') {
+            let elem = document.querySelector('#car_ano');
+            elem.parentNode.classList.add('has-error');
+            elem.focus();
+            this.setState({
+                ...this.state,
+                errorMessage: 'Campo Obrigatório'
+            });
+            return false;
+        }
+        return true;
     }
 
 
     /**
      * Pega bandeira do cartão
      */
-    getBrand() {
-        let cardNum = '376449047333005';
-        PagSeguroDirectPayment.getBrand({
-            cardBin: cardNum.substr(0, 6),
-            success: (response) => {
-                console.log('pagseguro',response);
-            }
-        })
-    }
+    // getBrand() {
+    //     let cardNum = '376449047333005';
+    //     PagSeguroDirectPayment.getBrand({
+    //         cardBin: cardNum.substr(0, 6),
+    //         success: (response) => {
+    //             console.log('pagseguro', response);
+    //         }
+    //     })
+    // }
 
     /**
      * Mostra Painel com a forma de pagamento escolhida
@@ -259,30 +308,28 @@ export default class FormularioPagamento extends Component {
                                            placeholder='Nome Igual do Cartão'/>
                                 </div>
                             </div>
-                            <div className="col-md-6 col-xs-12 form-group">
+                            <div className="col-md-8 col-xs-12 form-group">
                                 <label htmlFor="nome" className="control-label">Número do Cartão</label>
-                                    <input type="text" name="car_numero" className="form-control" id='car_numero'
+                                <div className="input-group">
+                                    <input type="number" name="car_numero" className="form-control" id='numeroCartao'
                                            value={this.state.car_numero} onChange={this.handleChange}
                                            placeholder='xxxx.xxxx.xxxx.xxxx'/>
-                            </div>
-                            <div className="col-md-2 col-xs-12 form-group">
-                                <ul className="cards">
-                                    <strong>Bandeira:</strong>
-                                    <li className="visa hand">Visa</li>
-                                </ul>
+                                    <span className="input-group-addon js-brand">{this.state.car_nome}</span>
+                                </div>
                             </div>
                             <div className="col-md-4 col-xs-12 form-group">
                                 <label htmlFor="nome" className="control-label">CVV</label>
-                                <input type="text" name="car_cvv" className="form-control" id='car_cvv'
+                                <input type="number" name="car_cvv" className="form-control" id='car_cvv'
                                        value={this.state.car_cvv} onChange={this.handleChange}
                                        placeholder='xxx'/>
                             </div>
 
                             <div className="form-group">
                                 <label htmlFor="validade" className="control-label">Data Validade</label>
-                                <div className="form-inline row">
-                                    <div className="form-group col-sm-6">
-                                        <select className="form-control" name='car_mes' id='car_mes' value={this.state.car_mes} onChange={this.handleChange}>
+                                <div className="row">
+                                    <div className="form-group col-sm-6 col-md-6">
+                                        <select className="form-control" name='car_mes' id='car_mes'
+                                                value={this.state.car_mes} onChange={this.handleChange}>
                                             <option value="">Mês</option>
                                             <option value="01">01</option>
                                             <option value="02">02</option>
@@ -299,7 +346,8 @@ export default class FormularioPagamento extends Component {
                                         </select>
                                     </div>
                                     <div className="form-group col-sm-6">
-                                        <select className="form-control" name='car_ano' id='car_ano' value={this.state.car_ano} onChange={this.handleChange}>
+                                        <select className="form-control" name='car_ano' id='car_ano'
+                                                value={this.state.car_ano} onChange={this.handleChange}>
                                             <option value="">Ano</option>
                                             <option value="2018">2018</option>
                                             <option value="2019">2019</option>
@@ -341,107 +389,111 @@ export default class FormularioPagamento extends Component {
 
     render() {
         return (
-        <div>
-            <div className="container wrapper">
-                <div className="row cart-head">
-                    <div className="container">
-                        <div className="row">
-                            <p></p>
-                        </div>
-                        <div className="row">
-                            <div className='display-table'>
-                                <span className="step step_complete"> <a className="check-bc"> Carrinho</a> <span className="step_line step_complete"> </span> <span className="step_line backline"> </span> </span>
-                                <span className="step_thankyou check-bc step_complete">Pagamento</span>
+            <div>
+                <div className="container wrapper">
+                    <div className="row cart-head">
+                        <div className="container">
+                            <div className="row">
+                                <p></p>
+                            </div>
+                            <div className="row">
+                                <div className='display-table'>
+                                    <span className="step step_complete"> <a className="check-bc"> Carrinho</a> <span
+                                        className="step_line step_complete"> </span> <span
+                                        className="step_line backline"> </span> </span>
+                                    <span className="step_thankyou check-bc step_complete">Pagamento</span>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <p></p>
                             </div>
                         </div>
-                        <div className="row">
-                            <p></p>
-                        </div>
                     </div>
-                </div>
-                <div className="row cart-body">
-                    <div className="container">
-                        <If mostrar={this.state.errorMessage}>
-                            <ShowMessage class='danger' message={this.state.errorMessage}/>
-                        </If>
-                        <form className="" onSubmit={this.handleSubmit}>
-                            <div className="row">
-                                <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-push-6 col-sm-push-6">
-                                    <CarrinhoView listaCursos={this.state.listaCursos} removeCurso={this.state.removeCurso}  btnComprar='hide'/>
-                                </div>
-                                <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-pull-6 col-sm-pull-6">
-                                    <div className="panel panel-success">
-                                        <div className="panel-heading">Informações para Pagamento</div>
-                                        <div className="panel-body">
-                                            <div className="form-group">
-                                                <div className="col-md-12">
-                                                    <h4>Dados Pessoais</h4>
+                    <div className="row cart-body">
+                        <div className="container">
+                            <If mostrar={this.state.errorMessage}>
+                                <ShowMessage class='danger' message={this.state.errorMessage}/>
+                            </If>
+                            <form className="" onSubmit={this.handleSubmit}>
+                                <div className="row">
+                                    <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-push-6 col-sm-push-6">
+                                        <CarrinhoView listaCursos={this.state.listaCursos}
+                                                      removeCurso={this.state.removeCurso} btnComprar='hide'/>
+                                    </div>
+                                    <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-pull-6 col-sm-pull-6">
+                                        <div className="panel panel-success">
+                                            <div className="panel-heading">Informações para Pagamento</div>
+                                            <div className="panel-body">
+                                                <div className="form-group">
+                                                    <div className="col-md-12">
+                                                        <h4>Dados Pessoais</h4>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div className="col-md-6 col-xs-12 form-group ">
-                                                <label htmlFor="nome" className="control-label">Nome</label>
-                                                <input type="text" id='nome' name="nome" className="form-control"
-                                                       value={this.state.nome} onChange={this.handleChange}/>
-                                            </div>
+                                                <div className="col-md-6 col-xs-12 form-group ">
+                                                    <label htmlFor="nome" className="control-label">Nome</label>
+                                                    <input type="text" id='nome' name="nome" className="form-control"
+                                                           value={this.state.nome} onChange={this.handleChange}/>
+                                                </div>
 
-                                            <div className="col-md-6 col-xs-12 form-group">
-                                                <label htmlFor="nome" className="control-label">CPF</label>
-                                                <input type="number" name="num_cpf" id='num_cpf'
-                                                       className="form-control"
-                                                       value={this.state.cpf}
-                                                       onChange={this.handleChange}/>
-                                            </div>
-                                            <div className="col-md-6 col-xs-12 form-group">
-                                                <label htmlFor="nome" className="control-label">Email</label>
-                                                <input type="text" name="email" id='email' className="form-control"
-                                                       value={this.state.email} onChange={this.handleChange}/>
-                                            </div>
-                                            <div className="col-md-6 col-xs-12 form-group">
-                                                <label htmlFor="nome" className="control-label">Telefone</label>
-                                                <input type="number" name="num_telefone" id='num_telefone' className="form-control"
-                                                       value={this.state.num_telefone}
-                                                       onChange={this.handleChange} maxLength='13'/>
+                                                <div className="col-md-6 col-xs-12 form-group">
+                                                    <label htmlFor="nome" className="control-label">CPF</label>
+                                                    <input type="number" name="num_cpf" id='num_cpf'
+                                                           className="form-control"
+                                                           value={this.state.cpf}
+                                                           onChange={this.handleChange}/>
+                                                </div>
+                                                <div className="col-md-6 col-xs-12 form-group">
+                                                    <label htmlFor="nome" className="control-label">Email</label>
+                                                    <input type="text" name="email" id='email' className="form-control"
+                                                           value={this.state.email} onChange={this.handleChange}/>
+                                                </div>
+                                                <div className="col-md-6 col-xs-12 form-group">
+                                                    <label htmlFor="nome" className="control-label">Telefone</label>
+                                                    <input type="number" name="num_telefone" id='num_telefone'
+                                                           className="form-control"
+                                                           value={this.state.num_telefone}
+                                                           onChange={this.handleChange} maxLength='13'/>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-push-6 col-sm-push-6">
-                                    {this.paymentMode(this.state.paymentMode)}
-                                </div>
-                                <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-pull-6 col-sm-pull-6">
-                                    <div className="panel panel-success">
-                                        <div className="panel-heading">Formas de Pagamento</div>
-                                        <div className="panel-body">
-                                            <div className="form-group">
-                                                <div className="col-md-12">
-                                                    <h4>Escolha a forma de pagamento</h4>
+                                <div className="row">
+                                    <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-push-6 col-sm-push-6">
+                                        {this.paymentMode(this.state.paymentMode)}
+                                    </div>
+                                    <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-pull-6 col-sm-pull-6">
+                                        <div className="panel panel-success">
+                                            <div className="panel-heading">Formas de Pagamento</div>
+                                            <div className="panel-body">
+                                                <div className="form-group">
+                                                    <div className="col-md-12">
+                                                        <h4>Escolha a forma de pagamento</h4>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div className="form-group group-btn">
-                                                <a onClick={() => this.chengePaymentMode('cartao')}
-                                                   className={`btn btn-default css-btn ${this.state.paymentMode == 'cartao' ? 'active' : ''}`}>
-                                                    <i className="fa fa-credit-card fa-4x"></i> <p>Cartão</p>
-                                                </a>
-                                                <a onClick={() => this.chengePaymentMode('boleto')}
-                                                   className={`btn btn-default css-btn ${this.state.paymentMode == 'boleto' ? 'active' : ''}`}>
-                                                    <i className="fa fa-barcode fa-4x"></i> <p>Boleto</p>
-                                                </a>
+                                                <div className="form-group group-btn">
+                                                    <a onClick={() => this.chengePaymentMode('cartao')}
+                                                       className={`btn btn-default css-btn ${this.state.paymentMode == 'cartao' ? 'active' : ''}`}>
+                                                        <i className="fa fa-credit-card fa-4x"></i> <p>Cartão</p>
+                                                    </a>
+                                                    <a onClick={() => this.chengePaymentMode('boleto')}
+                                                       className={`btn btn-default css-btn ${this.state.paymentMode == 'boleto' ? 'active' : ''}`}>
+                                                        <i className="fa fa-barcode fa-4x"></i> <p>Boleto</p>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
 
-                            </div>
-
-                        </form>
+                            </form>
+                        </div>
                     </div>
-                </div>
-                <div className="row cart-footer">
+                    <div className="row cart-footer">
+                    </div>
                 </div>
             </div>
-        </div>
         )
     }
 }

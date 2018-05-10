@@ -637,9 +637,9 @@ button, input, textarea, select {
 input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="password"], input[type="radio"], input[type="checkbox"], textarea, select {
     appearance: none;
     -webkit-appearance: none;
-    border: 1px solid #fff;
-    -webkit-border-radius: 0px;
-    border-radius: 0px;
+    border: 1px solid #c0c0c0;
+    -webkit-border-radius: 2px;
+    border-radius: 5px;
     color: #202020;
     outline: none;
     font-weight: 400;
@@ -4980,6 +4980,8 @@ ul.project-detail-block, .project-detail-block ul {
 }
 .btn {
     padding: 12px 25px;
+    border-radius: 5px !important;
+
 }
 .forms-notes {
     color: #eb3039;

@@ -44,7 +44,7 @@ export default class CarrinhoContador extends Component {
     }
 
     /**
-     * Inicia Compra e conexão com pagseguro
+     * Inicia Compra e muda para tela pagamento onde inicia conexão com pagseguro
      * @param listaCursos
      * @param valor
      */
