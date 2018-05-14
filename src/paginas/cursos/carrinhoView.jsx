@@ -73,7 +73,7 @@ export default props => {
                     <div className="col-xs-12">
                         <div className="panel panel-success">
                             <div className="panel-heading">
-                                <span className="glyphicon glyphicon-shopping-cart"></span> Lista de Cursos
+                                <span className="glyphicon glyphicon-shopping-cart"></span> Detalhes do Pedido
                                 {/*<div className="pull-right">*/}
                                     {/*<small><a className="afix-1" href="#">Editar Carrinho</a></small>*/}
                                 {/*</div>*/}

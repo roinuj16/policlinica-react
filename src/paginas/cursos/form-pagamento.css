@@ -312,3 +312,7 @@ hr{
     padding-bottom: 46px;
     float: left;
 }
+
+form select {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}

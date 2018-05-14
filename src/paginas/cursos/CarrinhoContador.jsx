@@ -3,15 +3,16 @@ import React, { Component } from 'react'
 export default class CarrinhoContador extends Component {
     constructor(props) {
         super(props);
-        this.state = { items: '', qtdItem: 0};
+        this.state = { items: '', qtdItem: 50};
     }
 
-    componentWillMount() {
-        console.log('qtd', this.props.qtd);
-        this.setState({
-            ...this.state,
-            qtdItem: this.props.qtd
-        });
+    componentDidMount() {
+        // @TODO: Finalizar aqui a soma de protudos no carrinho do menu
+        let dadosLocalStorage = localStorage.getItem('curso');
+        // this.setState({
+        //     ...this.state,
+        //     qtdItem: this.props.qtd
+        // });
     }
 
     render() {

@@ -2,6 +2,8 @@ import React from 'react'
 import logo from '../../assets/images/logo2_.png'
 import './menu.css'
 
+import Contador from '../../paginas/cursos/CarrinhoContador'
+
 export default props => (
     <header id="header" className="header header-1">
         <div id="top-bar" className="top-bar-section top-bar-bg-color">
@@ -80,8 +82,9 @@ export default props => (
                                 <li>
                                     <a href="#/carrinho-servico">
                                         <div className="qntde_cart">
-                                            <i className="fa fa-shopping-cart fa-2x pull-left"></i>
+                                            {/*<i className="fa fa-shopping-cart fa-2x pull-left"></i>*/}
                                             {/*<span>xxx</span>*/}
+                                            <Contador/>
                                         </div>
                                     </a>
                                 </li>
