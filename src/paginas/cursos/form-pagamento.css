@@ -41,14 +41,14 @@ html,body,.wrapper{
     top: -3px
 }
 .step_complete {
-    background: #357ebd
+    background: #04894F
 }
 .step_complete a.check-bc, .step_complete a.check-bc:hover,.afix-1,.afix-1:hover{
     color: #eee;
 }
 .step_line.step_complete {
     background: 0;
-    border-left: 16px solid #357ebd
+    border-left: 16px solid #04894F
 }
 .step_thankyou {
     float: left;
@@ -57,6 +57,7 @@ html,body,.wrapper{
     border-radius: 1px;
     text-align: center;
     width: 100px;
+    margin-left: 5px;
 }
 .step.check_step {
     margin-left: 5px;
@@ -141,7 +142,7 @@ html,body,.wrapper{
 }
 
 ol, ul {
-    list-style: none;
+    list-style: block;
 }
 .hand {
     cursor: pointer;

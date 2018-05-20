@@ -74,3 +74,162 @@ p{
     float: left;
     margin-left: 50%;
 }
+
+/**
+ * Detalhes do pagamento com boleto
+ */
+
+ol, ul {
+    list-style: block !important;
+}
+
+.payment-box {
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    padding: 10px 15px 20px;
+    margin-bottom: 25px;
+}
+
+.container-message {
+    margin:10px;
+}
+
+/**
+* Formatando componente final da compra
+ */
+
+.thanks-box {
+    font-family: Open Sans,Helvetica Neue,Helvetica,sans-serif;
+    width: 100%;
+    max-width: 800px;
+    margin: 100px auto;
+    border: 2px solid #f3f3f3;
+    border-top: 3px solid #5ac857;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding: 50px 25px;
+    z-index: 9999;
+    position: relative;
+    background: #fff;
+}
+
+.thanks-header{
+    overflow: hidden;
+    text-align: center;
+}
+
+.thanks-header .thanks-icon {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.thanks-header .thanks-text {
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    padding-left: 15px;
+}
+
+.thanks-header h2 {
+    font-weight: 100;
+    color: #5ac857;
+    line-height: 24px;
+    font-size: 24px;
+    margin: 0;
+}
+
+.thanks-header h1 {
+    font-weight: 800;
+    color: #5ac857;
+    line-height: 54px;
+    font-size: 42px;
+    margin: 0;
+}
+
+.transaction-code {
+    background-color: #f3f3f3;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin: 20px -25px 15px;
+}
+
+.transaction-code p {
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.transaction-code span {
+    text-align: center;
+    padding: 15px 25px;
+    border: .5px solid #5ac857;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 24px;
+    color: #000;
+    max-width: 100%;
+}
+
+.thanks-content {
+    margin: 40px 0;
+    border-top: 1px solid #ccc;
+}
+
+.thanks-instructions {
+    padding-top: 15px;
+}
+
+.thanks-instructions p {
+    color: #7e7e7e;
+}
+
+.thanks-billet p {
+    color: #7e7e7e;
+}
+
+.box {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    padding: 40px 0;
+    border-radius: 7px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.action-button {
+    max-width: 90%;
+    display: inline-block;
+    font-size: 18px;
+    line-height: 1.3333333;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    border: 1px solid #50b232;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-box-shadow: inset 0 -5px 0 rgba(0,0,0,.1);
+    box-shadow: inset 0 -5px 0 rgba(0,0,0,.1);
+    text-decoration: none;
+    outline: none;
+    -webkit-transition: all .6s cubic-bezier(.2,1,.22,1);
+    -o-transition: all .6s cubic-bezier(.2,1,.22,1);
+    transition: all .6s cubic-bezier(.2,1,.22,1);
+    padding: 10px 30px 15px;
+    border-radius: 6px;
+    color: #fff;
+    background: #7cd063;
+}
+
+.bg-warning {
+    background-color: #fcf8e3;
+    border: 1px solid #ede8d0;
+    color: #a0842e;
+    border-radius: 5px;
+    padding: 15px;
+}

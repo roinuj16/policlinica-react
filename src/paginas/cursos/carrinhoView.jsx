@@ -68,15 +68,12 @@ export default props => {
 
     return (
         <div>
-            <div className="container-fluid">
+            <div className="container-fluid container-message">
                 <div className="row">
                     <div className="col-xs-12">
                         <div className="panel panel-success">
                             <div className="panel-heading">
                                 <span className="glyphicon glyphicon-shopping-cart"></span> Detalhes do Pedido
-                                {/*<div className="pull-right">*/}
-                                    {/*<small><a className="afix-1" href="#">Editar Carrinho</a></small>*/}
-                                {/*</div>*/}
                             </div>
                             <div className="panel-body">
                                 {cursosCarrinho()}
@@ -93,7 +90,7 @@ export default props => {
                                     <If mostrar={btnComprar === 'show'}>
                                         <div className="col-xs-3">
                                             <button onClick={() => props.iniciarCompra(cursos, alteravalor())}
-                                                    type="button" className="btn btn-success btn-block">
+                                                    type="button" className="btn btn-success btn-block" disabled={cursos.length <= 0}>
                                                 Comprar
                                             </button>
                                         </div>
