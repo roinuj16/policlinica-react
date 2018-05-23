@@ -52,7 +52,10 @@ export default class Cursos extends Component {
             return (
                 <div className="col-md-3 col-sm-6" key={todo.id}>
                     <span className="thumbnail">
-                        <img src={ todo.path_image } alt={ todo.nome }/>
+                        <a >
+                            <img src={ todo.path_image } alt={ todo.nome }/>
+                        </a>
+
                         <h4 className='text-center'>{ todo.nome }</h4>
                         <hr className="line" />
                         <div className="row">

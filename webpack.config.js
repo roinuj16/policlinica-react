@@ -17,6 +17,7 @@ module.exports = {
             modules: __dirname + '/node_modules',
         }
     },
+    devtool: 'inline-source-map',
     plugins: [
         new webpack.ProvidePlugin({
             $: 'jquery',

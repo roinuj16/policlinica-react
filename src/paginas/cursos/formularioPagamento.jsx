@@ -240,8 +240,22 @@ export default class FormularioPagamento extends Component {
                 //Inicia sessão com pagseguro
                 axios.post(`${myConfig.apiUrl}/comprar-curso`, dataSend).then(response => {
 
-                    //@TODO: Tratar retorno para mostrar mensagem de sucesso com token
-                    console.log('response', response.data.result);
+                    console.log('response cartão', response.data.result);
+
+                    this.setState({
+                        ...this.state,
+                        load: false,
+                        code: response.data.result.code,
+                        payment_link: response.data.result.payment_link,
+                        reference: response.data.result.reference,
+                        status: response.data.result.success,
+                        showForm: false
+                    });
+
+                    localStorage.removeItem('curso');
+                    localStorage.removeItem('pgSessionId');
+
+
 
                 }).catch(function (error) {
                     console.log(error);
@@ -265,7 +279,7 @@ export default class FormularioPagamento extends Component {
         };
 
 
-        //Inicia sessão com pagseguro
+        //Gera o Boleto
         axios.post(`${myConfig.apiUrl}/gerar-boleto`, dataSend).then(response => {
 
             this.setState({
@@ -554,8 +568,7 @@ export default class FormularioPagamento extends Component {
                             </div>
                         </div>
                     </div>
-                )
-
+                );
             default:
                 return (
                     <div></div>
