@@ -8,8 +8,6 @@ export default props => {
 
     let dados = localStorage.getItem('curso');
 
-    console.log('dados', dados);
-
     return (
         <header id="header" className="header header-1">
             <div id="top-bar" className="top-bar-section top-bar-bg-color">

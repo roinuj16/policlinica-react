@@ -17,7 +17,6 @@ export default class Cursos extends Component {
         let tipo = this.props.tipo;
 
         axios.get(`${myConfig.apiUrl}/cursos/${tipo}`).then(response => {
-            console.log('dados=', response.data);
             this.setState({
                 ...this.state,
                 items: response.data.dados

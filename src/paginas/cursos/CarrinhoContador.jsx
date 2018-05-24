@@ -10,7 +10,7 @@ export default class CarrinhoContador extends Component {
         // alert('lll');
         // @TODO: Finalizar aqui a soma de protudos no carrinho do menu
         let dadosLocalStorage = localStorage.getItem('curso');
-        console.log('quantidade', dadosLocalStorage);
+        // console.log('quantidade', dadosLocalStorage);
         // this.setState({
         //     ...this.state,
         //     qtdItem: this.props.qtd
