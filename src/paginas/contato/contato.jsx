@@ -1,13 +1,135 @@
 import React, { Component } from 'react'
 
+import axios from 'axios'
+import {myConfig} from '../../main/consts'
+import { checkMail } from "../../common/helpers/functionsValidade";
+
+import ContatoEndereco from './contato-endereco'
+import ContafoForm from './contato-form'
 import Breadcrumb from '../../components/breadcrumb/breadcrumb'
 
-const iframeStyle = {
-    border:0,
-    width: '100%'
-};
-
 export default class Contato extends Component {
+    
+    constructor(props) {
+        super(props);
+        this.state = {
+            message: '',
+            classMessage:'',
+            nome: '',
+            email: '',
+            assunto: '',
+            mensagem: ''
+        };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSend = this.handleSend.bind(this);
+        this.validForm = this.validForm.bind(this);
+        this.resetForm = this.resetForm.bind(this);
+    }
+    
+    handleChange(e) {
+        const target = e.target;
+        const value = target.value;
+        const name = target.name;
+
+        this.setState({
+            ...this.state,
+            [name]: value,
+            message: ''
+        });
+    }
+    
+    handleSend() {
+        if(this.validForm()) {
+
+            let dataSend = {
+                nome: this.state.nome,
+                email: this.state.email,
+                assunto: this.state.assunto,
+                mensagem: this.state.mensagem,
+            };
+
+            axios.post(`${myConfig.apiUrl}/contato`, dataSend).then(response => {
+                this.setState({
+                    ...this.state,
+                    message: response.data.dados.msg,
+                    classMessage: response.data.dados.codigo === 1 ? 'success' : 'danger'
+                });
+            }).catch(function (error) {
+                console.log(error);
+            });
+        }
+    }
+
+    resetForm() {
+        this.setState({
+            ...this.state,
+            nome: '',
+            email: '',
+            assunto: '',
+            mensagem: ''
+        });
+    }
+
+    validForm() {
+        if(this.state.nome === '') {
+            let elem = document.querySelector('#nome');
+            elem.parentNode.classList.add('has-error');
+            elem.focus();
+            this.setState({
+                ...this.state,
+                message: 'Favor preencher o campo nome!',
+                classMessage: 'danger'
+            });
+            return false;
+        }
+
+        if(this.state.email === '') {
+            let elem = document.querySelector('#email');
+            elem.parentNode.classList.add('has-error');
+            elem.focus();
+            this.setState({
+                ...this.state,
+                message: 'Favor preencher o campo email!',
+                classMessage: 'danger'
+            });
+            return false;
+        }else if (checkMail(this.state.email) === false) {
+            let elem = document.querySelector('#email');
+            elem.parentNode.classList.add('has-error');
+            elem.focus();
+            this.setState({
+                ...this.state,
+                message: 'Email Inválido',
+                classMessage: 'danger'
+            });
+            return false;
+        }
+
+        if(this.state.assunto === '') {
+            let elem = document.querySelector('#assunto');
+            elem.parentNode.classList.add('has-error');
+            elem.focus();
+            this.setState({
+                ...this.state,
+                message: 'Favor preencher o campo assunto!',
+                classMessage: 'danger'
+            });
+            return false;
+        }
+
+        if(this.state.mensagem === '') {
+            let elem = document.querySelector('#mensagem');
+            elem.parentNode.classList.add('has-error');
+            elem.focus();
+            this.setState({
+                ...this.state,
+                message: 'Favor preencher o campo mensagem!',
+                classMessage: 'danger'
+            });
+            return false;
+        }
+        return true;
+    }
 
     render() {
         return (
@@ -20,65 +142,17 @@ export default class Contato extends Component {
                                 <h2>Entre em contato conosco</h2>
                             </div>
                         </div>
-                        <div className="row pt-30">
-                            <div className="col-sm-6">
-                                <div className="row-fluid">
-                                    <div className="col-md-6">
-                                        <h4>Unidade - Jardim do Ingá</h4>
-                                        <h4><span className="glyphicon glyphicon-map-marker"></span> Endereço</h4>
-                                        <span>Av Lucena Roriz, qd 58, Lote 27. Jardim Ingá,  Luziânia - GO</span>
-                                        <h4><span className="glyphicon glyphicon-phone-alt"></span> Telefone</h4>
-                                        <span>(61) 3623-6550 / (61) 9-8629-5131 WhatsApp</span>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m0!4v1500424217448!6m8!1m7!1s7IFfvYf7uyXFKIJXJWWLiA!2m2!1d-16.25703966977896!2d-47.95588402435257!3f262.9494678331693!4f10.490779730019895!5f0.7820865974627469" height="250" frameBorder="0" style={iframeStyle} allowFullScreen=""></iframe>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-sm-6">
-                                <div className="row-fluid">
-                                    <div className="col-md-6">
-                                        <h4>Unidade - Cidade Ocidental</h4>
-                                        <h4><span className="glyphicon glyphicon-map-marker"></span> Endereço</h4>
-                                        <span>SQ 12, quadra 01, n. 05. Cidade Ocidental - GO</span>
-                                        <h4><span className="glyphicon glyphicon-phone-alt"></span> Telefone</h4>
-                                        <span>(61) 3625-2809 / (61) 9-8585-5675 WhatsApp</span>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m0!4v1500424217448!6m8!1m7!1s7IFfvYf7uyXFKIJXJWWLiA!2m2!1d-16.25703966977896!2d-47.95588402435257!3f262.9494678331693!4f10.490779730019895!5f0.7820865974627469" height="250" frameBorder="0" style={iframeStyle} allowFullScreen=""></iframe>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="row pt-80">
-                            <div className="col-sm-12">
-                                <h4>Dúvidas, sugestões e marcações:</h4>
-                                <p> Tire dúvidas envie sugestões e marque sua consulta</p>
-                                <form className="contact-form mt-45" id="contact">
-                                    <div className="row">
-                                        <div className="col-sm-6">
-                                            <div className="form-field">
-                                                <input className="input-sm form-full" id="name" type="text" name="form-name" placeholder="Nome"/>
-                                            </div>
-                                            <div className="form-field">
-                                                <input className="input-sm form-full" id="email" type="text" name="form-email" placeholder="Email" />
-                                            </div>
-                                            <div className="form-field">
-                                                <input className="input-sm form-full" id="sub" type="text" name="form-subject" placeholder="Assunto" />
-                                            </div>
-                                        </div>
-                                        <div className="col-sm-6">
-                                            <div className="form-field">
-                                                <textarea className="form-full" id="message" rows="7" name="form-message" placeholder="Menssagem" ></textarea>
-                                            </div>
-                                        </div>
-                                        <div className="col-sm-12 mt-30">
-                                            <button className="btn btn-md btn-color-line" type="button" id="submit" name="button">Enviar</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+                        <ContatoEndereco/>
+                        <ContafoForm
+                            nome={this.state.nome}
+                            email={this.state.email}
+                            assunto={this.state.assunto}
+                            mensagem={this.state.mensagem}
+                            message={this.state.message}
+                            classMessage={this.state.classMessage}
+                            handleChange={this.handleChange}
+                            handleSend={this.handleSend}
+                        />
                     </div>
                 </section>
             </div>

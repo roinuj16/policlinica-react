@@ -49,7 +49,7 @@ export default class AboutHome extends Component {
                         </div>
                         <div className="col-md-4 col-sm-6 text-center">
                             <div className="padding-20">
-                                <a href="#/especialidades">
+                                <a>
                                     <div className="page-icon-top">
                                         <i className='fa fa-book fa-4x'></i>
                                     </div>
@@ -93,7 +93,7 @@ export default class AboutHome extends Component {
                         </div>
                         <div className="col-md-4 col-sm-6 text-center">
                             <div className="padding-20">
-                                <a href="#">
+                                <a href="#/contato">
                                     <div className="page-icon-top">
                                         <i className='fa fa-map-marker fa-4x'></i>
                                     </div>

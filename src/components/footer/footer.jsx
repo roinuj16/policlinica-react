@@ -25,23 +25,28 @@ export default props => (
                         <li><a><i className="ion-ios-telephone fa-icons"></i> (61) 3625-2809 / (61) 9-8585-5675</a></li>
                     </ul>
                 </div>
-                <div className="col-md-2 col-sm-6 col-xs-12 mb-sm-30">
+                <div className="col-md-3 col-sm-6 col-xs-12 mb-sm-30">
                     <h5>Horário de Atendimento</h5>
                     <div className="opening">
-                        <p> Segunda - Sexta : <span>8:00 - 18:00</span> </p>
-                        <p> Sábado : <span>9:00 - 17:00</span> </p>
-                        <p> Domingo : <span>8:00 - 12:00</span> </p>
+                        <p> Segunda - Sexta : <span>07:00 às 18:00</span> </p>
+                        <p> Sábado : <span>07:00 ao 12:00</span> </p>
                     </div>
                 </div>
-                <div className="col-md-4 col-sm-6 col-xs-12">
+                <div className="col-md-3 col-sm-6 col-xs-12">
                     <div className="newsletter">
                         <h5>Redes Sociais</h5>
                         <div className="col-md-12">
                             <ul className="social-network social-circle">
-                                <li><a href="#" className="icoFacebook" title="Facebook"><i className="fa fa-facebook-f"></i></a></li>
-                                <li><a href="#" className="icoTwitter" title="Twitter"><i className="fa fa-twitter"></i></a></li>
-                                <li><a href="#" className="icoGoogle" title="Google +"><i className="fa fa-google-plus"></i></a></li>
-                                <li><a href="#" className="icoLinkedin" title="Linkedin"><i className="fa fa-linkedin"></i></a></li>
+                                <li>
+                                    <a href="https://www.facebook.com/PoliclinicaSaudeeViida/?ref=bookmarks" target="_blank" className="icoFacebook" title="Facebook">
+                                        <i className="fa fa-facebook-f"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/policlnicasaudeevida" target="_blank" className="icoLinkedin" title="Linkedin">
+                                        <i className="fa fa-instagram"></i>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>

@@ -15,23 +15,23 @@ export default props => {
                     <div className="row">
                         <div className="col-sm-12">
                             <div className="top-contact link-hover-black hidden-xs">
-                                <a href="tel"> <i className="fa fa-whatsapp"></i>(61)9-8629-5131</a>
-                                <a href="tel"> <i className="fa fa-whatsapp"></i>(61)9-8585-5675</a>
+                                <a> <i className="fa fa-whatsapp"></i>(61)9-8629-5131</a>
+                                <a> <i className="fa fa-whatsapp"></i>(61)9-8585-5675</a>
                             </div>
                             <div className="top-social-icon icons-hover-black">
                                 <ul>
-                                    <li>
-                                        <a href="#" data-toggle="modal" data-target=".emergency-call">
-                                            <i className="fa fa-file-word-o"></i> Trabalhe Conosco
-                                        </a>
-                                    </li>
+                                    {/*<li>*/}
+                                        {/*<a href="#" data-toggle="modal" data-target=".emergency-call">*/}
+                                            {/*<i className="fa fa-file-word-o"></i> Trabalhe Conosco*/}
+                                        {/*</a>*/}
+                                    {/*</li>*/}
                                     <li>
                                         <a href="#" className="btn btn-md btn-white-line">
                                             <i className="icon ion-university"></i> <strong>Cursos Online</strong>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" className="btn btn-md btn-white-line">
+                                        <a href="http://lsantamaria.com.br/logins/login" target="_blank" className="btn btn-md btn-white-line">
                                             <i className="fa fa-list-alt"></i> <strong>Resultados Online</strong>
                                         </a>
                                     </li>
