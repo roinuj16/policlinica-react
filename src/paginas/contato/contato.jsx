@@ -13,6 +13,7 @@ export default class Contato extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            loading: false,
             message: '',
             classMessage:'',
             nome: '',
@@ -39,6 +40,10 @@ export default class Contato extends Component {
     }
     
     handleSend() {
+        this.setState({
+            ...this.state,
+            loading: true
+        });
         if(this.validForm()) {
 
             let dataSend = {
@@ -52,7 +57,8 @@ export default class Contato extends Component {
                 this.setState({
                     ...this.state,
                     message: response.data.dados.msg,
-                    classMessage: response.data.dados.codigo === 1 ? 'success' : 'danger'
+                    classMessage: response.data.dados.codigo === 1 ? 'success' : 'danger',
+                    loading: false
                 });
             }).catch(function (error) {
                 console.log(error);
@@ -144,6 +150,7 @@ export default class Contato extends Component {
                         </div>
                         <ContatoEndereco/>
                         <ContafoForm
+                            loading={this.state.loading}
                             nome={this.state.nome}
                             email={this.state.email}
                             assunto={this.state.assunto}

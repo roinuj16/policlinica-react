@@ -233,3 +233,50 @@ ol, ul {
     border-radius: 5px;
     padding: 15px;
 }
+
+.sorry-header{
+    overflow: hidden;
+    text-align: center;
+}
+
+.sorry-header .sorry-text {
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    padding-left: 15px;
+}
+
+.sorry-header h2 {
+    font-weight: 100;
+    color: #fe1b0e;
+    line-height: 24px;
+    font-size: 24px;
+    margin: 0;
+}
+
+.sorry-header h1 {
+    font-weight: 800;
+    color: #fe1b0e;
+    line-height: 54px;
+    font-size: 42px;
+    margin: 0;
+    text-align: center;
+}
+
+.sorry-content {
+    margin: 40px 0;
+    border-top: 1px solid #ccc;
+}
+
+.sorry-instructions {
+    padding-top: 15px;
+}
+
+.sorry-instructions p {
+    color: #7e7e7e;
+}
+
+.sorry-billet p {
+    color: #7e7e7e;
+}
+

@@ -36,7 +36,7 @@ export default class FormularioPagamento extends Component {
             code:'',
             payment_link:'',
             reference:'',
-            status:'',
+            status:false,
 
             showForm: true, //Mostra formulário ou mensagem de sucesso/erro
 
@@ -47,8 +47,9 @@ export default class FormularioPagamento extends Component {
 
         };
         this.handleChange = this.handleChange.bind(this);
+        this.onlyNumber = this.onlyNumber.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        // this.handleSubmit = this.handleSubmit.bind(this);
         this.paymentMode = this.paymentMode.bind(this);
         this.chengePaymentMode = this.chengePaymentMode.bind(this);
         this.validaForm = this.validaForm.bind(this);
@@ -138,7 +139,8 @@ export default class FormularioPagamento extends Component {
 
         this.setState({
             ...this.state,
-            optionTemplate: optionTemplate
+            optionTemplate: optionTemplate,
+            qtd_parcela: `${parcelas[0].quantity} - ${parcelas[0].installmentAmount}`
         });
     }
 
@@ -176,6 +178,16 @@ export default class FormularioPagamento extends Component {
             error: (response) => { console.log('response error', response)},
             complete: (response) => { console.log('response complete', response)}
         });
+    }
+
+    onlyNumber(evt) {
+
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            evt.preventDefault();
+        } else {
+            return true;
+        }
     }
 
     /**
@@ -489,23 +501,28 @@ export default class FormularioPagamento extends Component {
                                 <div className="col-md-12"><strong>Nome Cartão:</strong></div>
                                 <div className="col-md-12">
                                     <input type="text" className="form-control" name="car_nome" id='car_nome'
-                                           value={this.state.car_nome} onChange={this.handleChange}
+                                           value={this.state.car_nome}
+                                           onChange={this.handleChange}
+                                           maxLength={150}
                                            placeholder='Nome Igual do Cartão'/>
                                 </div>
                             </div>
                             <div className="col-md-8 col-xs-12 form-group">
                                 <label htmlFor="nome" className="control-label">Número do Cartão</label>
                                 <div className="input-group">
-                                    <input type="number" name="car_numero" className="form-control" id='numeroCartao'
+                                    <input type="text" name="car_numero" className="form-control" id='numeroCartao'
                                            value={this.state.car_numero} onChange={this.handleChange}
-                                           placeholder='xxxx.xxxx.xxxx.xxxx'/>
+                                           maxLength={16}
+                                           onKeyPress={this.onlyNumber}
+                                           placeholder='Somente Números'/>
                                     <span className="input-group-addon js-brand">{this.state.brand_name}</span>
                                 </div>
                             </div>
                             <div className="col-md-4 col-xs-12 form-group">
                                 <label htmlFor="nome" className="control-label">CVV</label>
-                                <input type="number" name="car_cvv" className="form-control" id='car_cvv'
+                                <input type="text" name="car_cvv" maxLength={4} className="form-control" id='car_cvv'
                                        value={this.state.car_cvv} onChange={this.handleChange}
+                                       onKeyPress={this.onlyNumber}
                                        placeholder='xxx'/>
                             </div>
 
@@ -646,15 +663,20 @@ export default class FormularioPagamento extends Component {
                                                             <label htmlFor="nome" className="control-label">Nome Completo</label>
                                                             <input type="text" id='nome' name="nome"
                                                                    className="form-control"
+                                                                   placeholder='Nome Completo'
+                                                                   maxLength={150}
                                                                    value={this.state.nome}
                                                                    onChange={this.handleChange}/>
                                                         </div>
 
                                                         <div className="col-md-6 col-xs-12 form-group">
                                                             <label htmlFor="nome" className="control-label">CPF</label>
-                                                            <input type="number" name="num_cpf" id='num_cpf'
+                                                            <input type="text" name="num_cpf" id='num_cpf'
                                                                    className="form-control"
+                                                                   placeholder='Somente números'
                                                                    value={this.state.cpf}
+                                                                   maxLength={11}
+                                                                   onKeyPress={this.onlyNumber}
                                                                    onChange={this.handleChange}/>
                                                         </div>
                                                         <div className="col-md-6 col-xs-12 form-group">
@@ -662,16 +684,20 @@ export default class FormularioPagamento extends Component {
                                                                    className="control-label">Email</label>
                                                             <input type="text" name="email" id='email'
                                                                    className="form-control"
+                                                                   placeholder='email válido'
                                                                    value={this.state.email}
                                                                    onChange={this.handleChange}/>
                                                         </div>
                                                         <div className="col-md-6 col-xs-12 form-group">
                                                             <label htmlFor="nome"
                                                                    className="control-label">Telefone</label>
-                                                            <input type="number" name="num_telefone" id='num_telefone'
+                                                            <input type="text" name="num_telefone" id='num_telefone'
                                                                    className="form-control"
+                                                                   placeholder='Somente números'
+                                                                   maxLength={11}
                                                                    value={this.state.num_telefone}
-                                                                   onChange={this.handleChange} maxLength='13'/>
+                                                                   onChange={this.handleChange}
+                                                                   onKeyPress={this.onlyNumber} />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -711,8 +737,36 @@ export default class FormularioPagamento extends Component {
                         </div>
                     </div>
                 </If>
-                <If mostrar={!this.state.showForm}>
-                    <MsgFinal nome={this.state.nome} codigo={this.state.code} link={this.state.payment_link} status={this.state.status}/>
+                <If mostrar={ !this.state.showForm && this.state.status }>
+                    <MsgFinal
+                        nome={this.state.nome}
+                        codigo={this.state.code}
+                        link={this.state.payment_link}
+                        paymentMode={this.state.paymentMode}
+                        status={this.state.status}/>
+                </If>
+                <If mostrar={ !this.state.showForm && this.state.status === false }>
+                    {/*Mensagem de erro*/}
+                    <div className="container container-message">
+                        <div className="row">
+                            <div className="thanks-box">
+                                <div className="sorry-header">
+                                    <header data-v-2a4dd70f="" className="sorry-header">
+                                        <div className="sorry-text">
+                                            <h1>Erro!</h1>
+                                            <div>
+                                                <p className="bg-warning">
+                                                    Desculpe! Tivemos um problema ao finalizar sua compra, nossa equipe técnica já
+                                                    esta trabalhando para corrigir
+                                                    esse problema.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </header>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </If>
             </div>
         )
