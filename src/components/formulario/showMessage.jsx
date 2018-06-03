@@ -6,8 +6,10 @@ import React from 'react'
  */
 export default props => {
     return (
-        <div className={`js-msg alert alert-${props.cssClass}`}>
-            <p>{props.message}</p>
+        <div>
+            <div className={`alert alert-${props.cssClass}`}>
+                {props.message}
+            </div>
         </div>
     )
 }
