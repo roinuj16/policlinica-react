@@ -11,6 +11,7 @@ import Contato from '../paginas/contato/contato'
 import Ead from '../components/menu/menuEad'
 import SemiPresencial from '../components/menu/menuSemiPresencial'
 import CarrinhoServico from '../paginas/cursos/carrinhoServico'
+import CursosServicos from '../paginas/cursos/cursosServicos'
 
 export default props => (
     <Router history={hashHistory}>
@@ -21,6 +22,7 @@ export default props => (
         <Route path='/informativo' component={Informativo} />
         <Route path='informativo-detalhes/:id' component={InformativoDetalhes} />
         <Route path='/contato' component={Contato} />
+        <Route path='/cursos' component={CursosServicos} />
         <Route path='/ead' component={Ead} />
         <Route path='/semipresencial' component={SemiPresencial} />
         <Route path='/carrinho/:id' component={InformativoDetalhes} />

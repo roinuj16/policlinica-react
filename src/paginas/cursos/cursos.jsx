@@ -9,8 +9,8 @@ export default class Cursos extends Component {
     constructor(props) {
         super(props);
         this.state = { items: ''};
-        this.listaCursos = this.listaCursos.bind(this)
-        this.validaStorage = this.validaStorage.bind(this)
+        this.listaCursos = this.listaCursos.bind(this);
+        this.validaStorage = this.validaStorage.bind(this);
     }
 
     componentWillMount() {

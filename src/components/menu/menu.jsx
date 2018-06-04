@@ -63,7 +63,7 @@ export default props => {
                                         <a href="#/sobre">Quem Somos</a>
                                     </li>
                                     <li>
-                                        <a>Cursos</a>
+                                        <a href={`#/cursos`}>Cursos</a>
                                         <i className="ion-ios-plus-empty visible-xs"></i>
                                         <ul className="sub-nav">
                                             <li> <a href={`#/ead`}>Ensino a Distância EAD</a> </li>

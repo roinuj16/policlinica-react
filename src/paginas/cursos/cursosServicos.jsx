@@ -9,7 +9,7 @@ export default class CursosServicos extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { items: [], tipo:'', qtd: 20 };
+        this.state = { items: [], tipo:3 };
 
         this.lista = [];
 
@@ -17,10 +17,12 @@ export default class CursosServicos extends Component {
     }
 
     componentWillMount() {
-        this.setState({
-            ...this.state,
-            tipo: this.props.tipo
-        });
+        if (this.props.tipo !== undefined) {
+            this.setState({
+                ...this.state,
+                tipo: this.props.tipo
+            });
+        }
     }
 
 
