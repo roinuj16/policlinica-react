@@ -2,7 +2,7 @@ h4{
     font-weight: 600;
 }
 p{
-    font-size: 12px;
+    font-size: 15px;
     margin-top: 5px;
 }
 .price{
@@ -280,3 +280,78 @@ ol, ul {
     color: #7e7e7e;
 }
 
+/***********Cursos details**********/
+
+.panel.panel--styled {
+    background: #F4F2F3;
+}
+.panelTop {
+    padding: 30px;
+}
+
+.panelBottom {
+    border-top: 1px solid #e7e7e7;
+    padding-top: 20px;
+}
+.btn-add-to-cart {
+    background: #FD5A5B;
+    color: #fff;
+}
+.btn.btn-add-to-cart.focus, .btn.btn-add-to-cart:focus, .btn.btn-add-to-cart:hover  {
+    color: #fff;
+    background: #FD7172;
+    outline: none;
+}
+.btn-add-to-cart:active {
+    background: #F9494B;
+    outline: none;
+}
+
+
+span.itemPrice {
+    font-size: 24px;
+    color: #303030;
+}
+
+.stars {
+    padding-top: 10px;
+    width: 100%;
+    display: inline-block;
+}
+span.glyphicon {
+    padding: 5px;
+}
+.glyphicon-star-empty {
+    color: #9d9d9d;
+}
+.glyphicon-star-empty, .glyphicon-star {
+    font-size: 18px;
+}
+.glyphicon-star {
+    color: #FD4;
+    transition: all .25s;
+}
+.glyphicon-star:hover {
+    transform: rotate(-15deg) scale(1.3);
+}
+
+.panelTop p {
+    text-align: justify;
+}
+.js-img-course {
+    margin: 0 0 10px 40px;
+}
+
+.js-txt {
+    padding-right: 30px;
+}
+
+.js-left {
+    border:1px solid #cccccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.btn-comprar {
+    margin-bottom: 10px;
+}

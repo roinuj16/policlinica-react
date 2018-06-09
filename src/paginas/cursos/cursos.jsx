@@ -3,14 +3,21 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { myConfig } from '../../main/consts'
 import BtnAddCart from './btnAddCart'
+import If from '../../components/if/if'
+import DetalhesCurso from './curso-detalhes'
 import './cursos.css'
 
 export default class Cursos extends Component {
     constructor(props) {
         super(props);
-        this.state = { items: ''};
+        this.state = {
+            items: '',
+            objDetail: '',
+            viewDetails: false //viewDetails { false = Lista de cursos, true = detalhes do curso
+        };
         this.listaCursos = this.listaCursos.bind(this);
         this.validaStorage = this.validaStorage.bind(this);
+        this.showDetails = this.showDetails.bind(this);
     }
 
     componentWillMount() {
@@ -45,13 +52,21 @@ export default class Cursos extends Component {
         return true;
     }
 
+    showDetails(info, objDetails) {
+        this.setState({
+            ...this.state,
+            viewDetails: info,
+            objDetail: (info) ? objDetails : ''
+        });
+    }
+
     listaCursos() {
         let list = this.state.items || [];
         return list.map(todo => {
             return (
                 <div className="col-md-3 col-sm-6" key={todo.id}>
                     <span className="thumbnail">
-                        <a >
+                        <a onClick={() => this.showDetails(true, todo)}>
                             <img src={ todo.path_image } alt={ todo.nome }/>
                         </a>
 
@@ -78,13 +93,24 @@ export default class Cursos extends Component {
     render() {
         return (
             <div>
-
-                <div className="container pt-80">
-                    <div className="row">
-                        {this.listaCursos()}
+                <If mostrar={!this.state.viewDetails}>
+                    <div className="container pt-80">
+                        <div className="row">
+                            {this.listaCursos()}
+                        </div>
                     </div>
-                </div>
+                </If>
+                <If mostrar={this.state.viewDetails}>
+                    <div className="container pt-80">
+                        <div className="row">
+                            <DetalhesCurso details={this.state.objDetail} hideDetail={this.showDetails} addCarrinho={this.props.addCarrinho}/>
+                        </div>
+                    </div>
+                </If>
+
             </div>
+
+
         )
     }
 }

@@ -49,7 +49,7 @@ export default class AboutHome extends Component {
                         </div>
                         <div className="col-md-4 col-sm-6 text-center">
                             <div className="padding-20">
-                                <a>
+                                <a href='#/cursos'>
                                     <div className="page-icon-top">
                                         <i className='fa fa-book fa-4x'></i>
                                     </div>
@@ -60,7 +60,7 @@ export default class AboutHome extends Component {
                         </div>
                         <div className="col-md-4 col-sm-6  text-center">
                             <div className="padding-20">
-                                <a>
+                                <a href="http://lsantamaria.com.br/logins/login" target="_blank">
                                     <div className="page-icon-top">
                                         <i className='fa fa-list-alt fa-4x'></i>
                                     </div>

@@ -27,6 +27,8 @@ export default class CursosServicos extends Component {
 
 
     addCarrinho(curso) {
+        
+        console.log('curso', curso);
 
         //Montando url de retorno
         localStorage.setItem('urlBack', window.location.href);
