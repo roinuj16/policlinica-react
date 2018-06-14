@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
+import Loading from 'react-loading'
 import axios from 'axios'
+
 import { myConfig } from '../../main/consts'
+import If from '../../components/if/if'
 
 import Breadcrumb from '../../components/breadcrumb/breadcrumb'
 
@@ -8,7 +11,7 @@ export default class Sobre extends Component {
 
     constructor(props) {
         super(props)
-        this.state = { titulo: '', conteudo: '', img_path: '' }
+        this.state = { titulo: '', conteudo: '', img_path: '', load: true }
     }
 
     componentDidMount() {
@@ -20,6 +23,7 @@ export default class Sobre extends Component {
                     titulo: response.data.dados.titulo,
                     conteudo: response.data.dados.conteudo,
                     img_path: response.data.dados.img_path,
+                    load: false
                 })
             })
             .catch(function (error) {
@@ -31,6 +35,15 @@ export default class Sobre extends Component {
         return (
             <div>
                 <Breadcrumb name='Quem Somos' />
+                <If mostrar={this.state.load}>
+                    <div className="container pt-80">
+                        <div className="row">
+                            <div className="col-md-12 col-md-offset-5">
+                                <Loading type='bars' color='#31B77D' delay={5}/>
+                            </div>
+                        </div>
+                    </div>
+                </If>
                 <section className="about-section ptb">
                     <div className="container">
                         <div className="row">

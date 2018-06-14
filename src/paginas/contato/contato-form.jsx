@@ -16,7 +16,13 @@ export default props => {
                     <ShowMessage cssClass={props.classMessage} message={props.message}/>
                 </If>
                 <If mostrar={props.loading}>
-                    <Loading type='bars' color='#31B77D' delay={5}/>
+                    <div className="container pt-80">
+                        <div className="row">
+                            <div className="col-md-12 col-md-offset-5">
+                                <Loading type='bars' color='#31B77D' delay={5}/>
+                            </div>
+                        </div>
+                    </div>
                 </If>
 
                 <If mostrar={!props.loading}>

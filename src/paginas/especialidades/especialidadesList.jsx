@@ -5,7 +5,6 @@ import './especialidades.css'
 export default props => {
     const renderRows = () => {
         const list = props.list || [];
-            console.log(list);
         return list.map(todo => (
         <div className="col-xs-12 col-sm-6 col-md-3" key={todo.id}>
             <div className="image-flip" id='topo'>
