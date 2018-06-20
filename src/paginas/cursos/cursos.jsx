@@ -115,7 +115,10 @@ export default class Cursos extends Component {
                 <If mostrar={this.state.viewDetails}>
                     <div className="container pt-80">
                         <div className="row">
-                            <DetalhesCurso details={this.state.objDetail} hideDetail={this.showDetails} addCarrinho={this.props.addCarrinho}/>
+                            <DetalhesCurso
+                                details={this.state.objDetail}
+                                hideDetail={this.showDetails}
+                                addCarrinho={this.props.addCarrinho}/>
                         </div>
                     </div>
                 </If>

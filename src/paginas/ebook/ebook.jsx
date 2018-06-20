@@ -168,8 +168,7 @@ export default class Ebook extends Component {
                 <If mostrar={this.state.viewDetails}>
                     <div className="container pt-80">
                         <div className="row">
-                            <EbookDet
-                                 ail
+                            <EbookDetail
                                 details={this.state.objDetail}
                                 load={this.state.loadSendEmail}
                                 handleChange={this.handleChange}

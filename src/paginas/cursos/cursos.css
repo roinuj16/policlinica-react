@@ -355,3 +355,18 @@ span.glyphicon {
 .btn-comprar {
     margin-bottom: 10px;
 }
+
+.css-video {
+    border:1px solid #cccccc;
+    border-radius: 5px;
+    display: block;
+    padding: 10px 10px 10px 20px;
+    margin-top: 20px;
+    float: right;
+}
+
+@media (max-width: 375px) {
+    .css-video  {
+        float: right;
+    }
+}

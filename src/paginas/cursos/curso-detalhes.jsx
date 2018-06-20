@@ -26,6 +26,9 @@ return (
                                         <a onClick={() => props.hideDetail(false, {})} className='btn btn-lg btn-color-line btn-block js-btn'><span className="fa fa-reply-all"></span> Voltar</a>
                                     </div>
                                 </div>
+                                <div className="col-md-4 css-video">
+                                    <iframe marginWidth="330" marginHeight="275" src={props.details.url_video} frameBorder="0" allowFullScreen></iframe>
+                                </div>
                             </div>
                         </div>
                     </div>
