@@ -68,6 +68,7 @@ export default props => {
                                         <ul className="sub-nav">
                                             <li> <a href={`#/ead`}>Ensino a Distância EAD</a> </li>
                                             <li> <a href="#/semipresencial">Ensino Semipresencial</a> </li>
+                                            <li> <a href="#/ebook">E-Books Grátis</a> </li>
                                         </ul>
                                     </li>
                                     <li>

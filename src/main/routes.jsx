@@ -10,6 +10,7 @@ import InformativoDetalhes from '../paginas/informativo/informativoDetalhes'
 import Contato from '../paginas/contato/contato'
 import Ead from '../components/menu/menuEad'
 import SemiPresencial from '../components/menu/menuSemiPresencial'
+import Ebook from '../paginas/ebook/ebook'
 import CarrinhoServico from '../paginas/cursos/carrinhoServico'
 import CursosServicos from '../paginas/cursos/cursosServicos'
 
@@ -25,6 +26,7 @@ export default props => (
         <Route path='/cursos' component={CursosServicos} />
         <Route path='/ead' component={Ead} />
         <Route path='/semipresencial' component={SemiPresencial} />
+        <Route path='/ebook' component={Ebook} />
         <Route path='/carrinho/:id' component={InformativoDetalhes} />
         <Route path='/carrinho-servico' component={CarrinhoServico} />
         <Redirect from='*' to='/' />
