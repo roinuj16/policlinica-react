@@ -1,5 +1,6 @@
 import React from 'react'
-import logo from '../../assets/images/logo2_.png'
+import logo from '../../assets/images/policlinica.png'
+// import logo from '../../assets/images/logo2_.png'
 import './menu.css'
 
 import Contador from '../../paginas/cursos/CarrinhoContador'
@@ -47,7 +48,7 @@ export default props => {
                         <div className="col-sm-3">
                             <div className="logo">
                                 <a href="#">
-                                    <img src={logo} alt="Policlínica Saúde"></img>
+                                    <img src={logo} className='img-logo' alt="Policlínica Saúde"></img>
                                 </a>
                             </div>
                             <button id="menu" className="menu visible-xs"></button>

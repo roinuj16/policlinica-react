@@ -3053,7 +3053,7 @@ div.page-icon-top {
     background-color: rgba(32,32,32,0.8);
 }
 .overlay-bg-color:before {
-    background-color: rgba(0, 209, 16, 0.8);
+    background-color: #005231 !important;
 }
 .overlay-dark80:before {
     background-color: rgba(32,32,32,0.8);
@@ -3730,7 +3730,7 @@ ul.project-detail-block, .project-detail-block ul {
 /* Blog   --------------------------------------------------------- */
 /* ----------------------------------------------------------------------*/
 #blog {
-    background: #e5f0fb;
+    background: #ffffff;
 }
 .blog-post {
     display: inline-block;
