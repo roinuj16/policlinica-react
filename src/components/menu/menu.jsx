@@ -26,11 +26,11 @@ export default props => {
                                             {/*<i className="fa fa-file-word-o"></i> Trabalhe Conosco*/}
                                         {/*</a>*/}
                                     {/*</li>*/}
-                                    <li>
-                                        <a href="#" className="btn btn-md btn-white-line">
-                                            <i className="icon ion-university"></i> <strong>Cursos Online</strong>
-                                        </a>
-                                    </li>
+                                    {/*<li>*/}
+                                        {/*<a href="#" className="btn btn-md btn-white-line">*/}
+                                            {/*<i className="icon ion-university"></i> <strong>Cursos Online</strong>*/}
+                                        {/*</a>*/}
+                                    {/*</li>*/}
                                     <li>
                                         <a href="http://lsantamaria.com.br/logins/login" target="_blank" className="btn btn-md btn-white-line">
                                             <i className="fa fa-list-alt"></i> <strong>Resultados Online</strong>
