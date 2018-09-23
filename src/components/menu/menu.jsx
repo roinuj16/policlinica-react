@@ -57,8 +57,7 @@ export default props => {
                             <nav className="navigation">
                                 <ul>
                                     <li className="active">
-                                        <a href="#/">Início</a>
-                                        <i className="ion-ios-plus-empty visible-xs"></i>
+                                        <a href="#/" >Início</a>
                                     </li>
                                     <li>
                                         <a href="#/sobre">Quem Somos</a>
@@ -74,15 +73,12 @@ export default props => {
                                     </li>
                                     <li>
                                         <a href="#/especialidades">Especialidades</a>
-                                        <i className="ion-ios-plus-empty visible-xs"></i>
                                     </li>
                                     <li>
                                         <a href="#/convenios">Convênios</a>
-                                        <i className="ion-ios-plus-empty visible-xs"></i>
                                     </li>
                                     <li>
                                         <a href="#/informativo">Informativo</a>
-                                        <i className="ion-ios-plus-empty visible-xs"></i>
                                     </li>
                                     <li><a href="#/contato">Contato</a></li>
                                     <li>

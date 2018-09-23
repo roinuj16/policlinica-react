@@ -95,7 +95,7 @@ a {
     -o-transition: all 0.25s ease 0s;
 }
 a:hover {
-    color: #19b5fe;
+    color: #009152;
     text-decoration: none;
     transition: all 0.25s ease 0s;
     -moz-transition: all 0.25s ease 0s;
@@ -268,7 +268,7 @@ mark {
     background-color: #252525 !important;
 }
 .bg-color {
-    background: #19b5fe;
+    background: #009152;
 }
 /*Flaticon*/
 @font-face {
@@ -338,7 +338,7 @@ mark {
 /*}*/
 /*border*/
 .multbg-top-to-bottom {
-    border-top: 2px solid #19b5fe;
+    border-top: 2px solid #009152;
     border-bottom: 2px solid transparent;
     background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#19b5fe), to(transparent));
     background-image: -webkit-linear-gradient(#19b5fe, transparent);
@@ -351,7 +351,7 @@ mark {
     background-repeat: no-repeat;
 }
 .multbg-top-to-bottom:hover, .multbg-bottom-to-top {
-    border-bottom: 2px solid #19b5fe;
+    border-bottom: 2px solid #009152;
     border-top: 2px solid transparent;
     background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), to(#19b5fe));
     background-image: -webkit-linear-gradient(transparent, #19b5fe);
@@ -570,16 +570,16 @@ button {
     padding: 14px 34px;
 }
 .btn-white-line:hover {
-    color: #19b5fe;
+    color: #009152;
     background: #fff;
 }
 .btn-color-line:hover {
-    background: #19b5fe;
+    background: #009152;
     color: #fff;
 }
 .btn-color-line {
     border-color: #009152 !important;
-    color: #19b5fe;
+    color: #009152;
 }
 .btn-link-a, .btn-link-b {
     color: #323232;
@@ -1112,8 +1112,8 @@ form label.error {
     padding: 32px 0;
 }
 .menu {
-    border-bottom: 4px solid #19b5fe;
-    border-top: 4px solid #19b5fe;
+    border-bottom: 4px solid #009152;
+    border-top: 4px solid #009152;
     height: 29px;
     position: absolute;
     right: 29px;
@@ -1128,7 +1128,7 @@ form label.error {
     content: '';
     width: 100%;
     height: 4px;
-    background: #19b5fe;
+    background: #009152;
 }
 .header ul {
     float: right;
@@ -1221,7 +1221,7 @@ form label.error {
 .top-bar-section {
     padding-top: 10px;
     padding-bottom: 10px;
-    background: #19b5fe;
+    background: #009152;
     color: #fff;
 }
 .top-contact {
@@ -1270,14 +1270,14 @@ form label.error {
     padding: 9px 20px;
 }
 .top-social-icon a.btn:hover {
-    color: #19b5fe;
+    color: #009152;
 }
 .link-hover-black > a:last-child {
     margin-left: 10px;
 }
 /*Header style 2*/
 .header-2 .primary-header {
-    background: #19b5fe;
+    background: #009152;
 }
 .header-2 .navigation>ul {
     float: left;
@@ -1356,7 +1356,7 @@ form label.error {
     color: #909090;
 }
 .header-2 .top-bar-section.top-bar-bg-color a:hover, .call-us ul li a:hover {
-    color: #19b5fe;
+    color: #009152;
 }
 .col-right {
     text-align: right;
@@ -1457,7 +1457,7 @@ form label.error {
     height: auto !important;
 }
 .main-banner .more-btn {
-    background: #19b5fe;
+    background: #009152;
     line-height: 30px !important;
     padding-left: 38px !important;
     padding-right: 38px !important;
@@ -1497,8 +1497,8 @@ form label.error {
     visibility: visible;
 }
 .tparrows.tp-leftarrow:hover, .tparrows.tp-rightarrow:hover {
-    background: #19b5fe;
-    border: 1px solid #19b5fe;
+    background: #009152;
+    border: 1px solid #009152;
 }
 /*-------------------------------------------------------------------------------------------*/
 /*  Team Box         ||---------------------------- */
@@ -1546,7 +1546,7 @@ form label.error {
     width: 40px;
     height: 40px;
     background: #fff;
-    color: #19b5fe;
+    color: #009152;
     border-radius: 100%;
     display: block;
     line-height: 40px;
@@ -1608,7 +1608,7 @@ form label.error {
     right: 0;
     bottom: 0;
     content: '';
-    background: #19b5fe;
+    background: #009152;
     opacity: .95;
 }
 .single-fact .icon-box i:before {
@@ -1632,7 +1632,7 @@ form label.error {
 }
 .doctor-specialist {
     width: 100%;
-    background: #19b5fe;
+    background: #009152;
     display: block;
     padding: 0 20px;
     line-height: 40px;
@@ -1661,7 +1661,7 @@ form label.error {
     padding: 3px 20px;
 }
 .filter-button-group li:hover {
-    background: #19b5fe;
+    background: #009152;
 }
 .filter-button-group li a {
     color: #fff;
@@ -1690,7 +1690,7 @@ form label.error {
 }
 .box-resume {
     position: relative;
-    border: 1px solid #19b5fe;
+    border: 1px solid #009152;
     padding: 30px;
     margin-top: 45%;
 }
@@ -1698,7 +1698,7 @@ form label.error {
     background: #fff;
 }
 .box-resume .btn:hover {
-    background: #19b5fe;
+    background: #009152;
 }
 .box-resume ul {
     margin: 0;
@@ -1895,14 +1895,14 @@ form label.error {
     background: rgba(4, 127, 218, 0.5);
 }
 .fancybox-skin {
-    background: #19b5fe;
+    background: #009152;
     border-radius: 0;
     padding: 30px !important;
 }
 .fancybox-nav span {
     width: 70px;
     height: 64px;
-    background: #19b5fe;
+    background: #009152;
     border: 1px solid #fff;
     visibility: visible;
     transition: all 0.2s linear 0s;
@@ -2051,7 +2051,7 @@ form label.error {
     margin: 0px;
 }
 .accordion-title.active, .accordion-title:hover {
-    color: #19b5fe;
+    color: #009152;
 }
 .accordion-title:before {
     content: "\f105";
@@ -2136,7 +2136,7 @@ form label.error {
 }
 .event_time i {
     font-size: 20px;
-    color: #19b5fe;
+    color: #009152;
 }
 .venue_block {
     position: relative;
@@ -2226,12 +2226,12 @@ form label.error {
     color: #26211d;
 }
 .popular-events.media p a:hover {
-    color: #19b5fe;
+    color: #009152;
 }
 .popular-events.media span {
     font-size: 12px;
     color: #fff;
-    background: #19b5fe;
+    background: #009152;
     padding: 5px;
 }
 .popular-events ul {
@@ -2340,7 +2340,7 @@ form label.error {
     text-align: center;
 }
 .line-box i {
-    color: #19b5fe;
+    color: #009152;
     border: none;
     transition: all 0.3s linear 0s;
     -moz-transition: all 0.3s linear 0s;
@@ -2348,7 +2348,7 @@ form label.error {
     box-shadow: 0 0px 0px 1px #19b5fe inset;
 }
 .inner-header-wraper:hover i {
-    background: #19b5fe;
+    background: #009152;
     color: #fff;
     transition: all 0.3s linear 0s;
     -moz-transition: all 0.3s linear 0s;
@@ -2375,7 +2375,7 @@ form label.error {
 .inner-header-wraper span {
     height: 50px;
     width: 50px;
-    background: #19b5fe;
+    background: #009152;
     position: absolute;
     display: block;
     font-size: 25px;
@@ -2422,14 +2422,14 @@ form label.error {
     height: 630px;
 }
 .bg-color {
-    background: #19b5fe;
+    background: #009152;
 }
 .booking-section {
     overflow: hidden;
 }
 .icon-arrow {
     position: absolute;
-    color: #19b5fe;
+    color: #009152;
     right: 10px;
     top: 40px;
     font-size: 23px;
@@ -2481,7 +2481,7 @@ form label.error {
     width: 63px;
     height: 80px;
     display: block;
-    background: #19b5fe;
+    background: #009152;
     float: left;
     text-align: center;
     font-size: 30px;
@@ -2545,7 +2545,7 @@ form label.error {
 .schedule .nav-tabs > li {
     float: none;
     display: inline-block;
-    background: #19b5fe;
+    background: #009152;
     color: #fff;
     padding: 0 8px;
     margin: 0 0.5%;
@@ -2595,7 +2595,7 @@ form label.error {
     bottom: 25px;
     font-size: 15px;
     text-align: center;
-    background: #19b5fe;
+    background: #009152;
     -webkit-border-radius: 30px 0px 0px 30px;
     -moz-border-radius: 30px 0px 0px 30px;
     border-radius: 30px 0px 0px 30px;
@@ -2656,7 +2656,7 @@ form label.error {
     position: relative;
 }
 #feed-group .feed-panel .feed-text.silver-tree-background {
-    background: #19b5fe;
+    background: #009152;
 }
 #feed-group .feed-panel .feed-text.roti-background {
     background: rgb(25, 136, 254);
@@ -2685,7 +2685,7 @@ form label.error {
     display: block;
 }
 #feed-group .feed-panel i.fa {
-    background: #19b5fe;
+    background: #009152;
     color: #fff;
     position: absolute;
     bottom: 25px;
@@ -2743,7 +2743,7 @@ form label.error {
     content: '';
     width: 14px;
     height: 29px;
-    background: #19b5fe;
+    background: #009152;
     position: absolute;
     left: 61px;
     bottom: -14px;
@@ -2779,8 +2779,8 @@ form label.error {
     cursor: pointer;
 }
 .video-btn:hover {
-    color: #19b5fe;
-    border: 1px solid #19b5fe;
+    color: #009152;
+    border: 1px solid #009152;
 }
 /*-------------------------------------------------------------------------------------------*/
 /* Icon          ||---------------------------- */
@@ -3206,17 +3206,17 @@ form .error {
     border-radius: 0;
 }
 .contact-form input[type="text"]:focus, .contact-form textarea:focus {
-    border: 1px solid #19b5fe;
+    border: 1px solid #009152;
 }
 .i-block {
     display: inline-block;
 }
 .contact .icon-circle {
-    border: 1px solid #19b5fe;
-    color: #19b5fe;
+    border: 1px solid #009152;
+    color: #009152;
 }
 .mapmarker .ion-ios-location {
-    color: #19b5fe;
+    color: #009152;
     font-size: 50px;
 }
 @media (max-width: 767px) {
@@ -3325,13 +3325,13 @@ form .error {
     margin-bottom: 0;
 }
 .widget-search input[type="text"]:focus {
-    border: 1px solid #19b5fe;
+    border: 1px solid #009152;
 }
 .blog-post-hr input[type="text"], .blog-post-hr textarea {
     border: 1px solid #DEDEDE;
 }
 .blog-post-hr input[type="text"]:focus, .blog-post-hr textarea:focus {
-    border: 1px solid #19b5fe;
+    border: 1px solid #009152;
 }
 .widget-search input[type="submit"] {
     background-color: rgba(0,0,0,0);
@@ -3381,7 +3381,7 @@ form .error {
     padding: 10px 0px;
 }
 .sidebar-widget ul li a:hover {
-    color: #19b5fe;
+    color: #009152;
 }
 .widget-tag {
     display: inline-table;
@@ -3396,11 +3396,11 @@ form .error {
 .widget-tag li a {
     padding: 4px 10px !important;
     display: block;
-    border: 1px solid #19b5fe;
+    border: 1px solid #009152;
     color: #19b5fe !important;
 }
 .sidebar-widget .widget-tag li a:hover {
-    background: #19b5fe;
+    background: #009152;
     color: #fff !important;
 }
 .sidebar-widget .widget-post {
@@ -3505,8 +3505,8 @@ form .error {
 }
 .pagination-nav ul li a {
     display: block;
-    border: 1px solid #19b5fe;
-    color: #19b5fe;
+    border: 1px solid #009152;
+    color: #009152;
     height: 36px;
     width: 36px;
     line-height: 34px;
@@ -3514,7 +3514,7 @@ form .error {
     font-size: 14px;
 }
 .pagination-nav ul li.active a, .pagination-nav ul li:hover a {
-    background: #19b5fe;
+    background: #009152;
     color: #fff;
 }
 /* ----------------------------------------------------------------------*/
@@ -3672,12 +3672,12 @@ ul.project-detail-block, .project-detail-block ul {
     -o-transition: all 0.3s ease 0s;
 }
 .item-nav .item-prev .prev-btn, .item-nav .item-next .next-btn {
-    color: #19b5fe;
+    color: #009152;
     width: 51px;
     border: 1px solid #19b5fe
 }
 .item-nav .item-prev:hover .prev-btn, .item-nav .item-next:hover .next-btn {
-    background: #19b5fe;
+    background: #009152;
     color: #fff;
 }
 .item-nav .item-prev {
@@ -3816,7 +3816,7 @@ ul.project-detail-block, .project-detail-block ul {
     visibility: visible;
 }
 .blog-post .post-more-link:hover .btn-color-line {
-    background: #19b5fe;
+    background: #009152;
     color: #fff;
 }
 .blog-post .icons-hover-black a {
@@ -3886,7 +3886,7 @@ ul.project-detail-block, .project-detail-block ul {
 }
 .blog-post .fa-tag {
     padding-right: 10px;
-    color: #19b5fe;
+    color: #009152;
 }
 .post-author h6 {
     margin-top: 0px;
@@ -3962,7 +3962,7 @@ ul.project-detail-block, .project-detail-block ul {
     position: absolute;
     bottom: 0;
     left: 0;
-    background: #19b5fe;
+    background: #009152;
     color: #fff;
 }
 .post-media {
@@ -4244,7 +4244,7 @@ ul.project-detail-block, .project-detail-block ul {
     color: #323232;
 }
 .appointment-section .input-sm {
-    border: 1px solid #19b5fe;
+    border: 1px solid #009152;
 }
 .appointment-section .right-block .appointment {
     padding: 0;
@@ -4257,7 +4257,7 @@ ul.project-detail-block, .project-detail-block ul {
     bottom: 7px;
     right: 18px;
     font-size: 23px;
-    color: #19b5fe;
+    color: #009152;
     pointer-events: none;
 }
 .opening {
@@ -4711,7 +4711,7 @@ ul.project-detail-block, .project-detail-block ul {
     border: 0;
 }
 .color-primary, a.color-primary {
-    color: #19b5fe;
+    color: #009152;
 }
 .card .card-action>a {
     margin-right: 20px;
@@ -4740,7 +4740,7 @@ ul.project-detail-block, .project-detail-block ul {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #19b5fe;
+    background-color: #009152;
     height: 220px;
 }
 .ui-input-group>input {
@@ -4773,7 +4773,7 @@ ul.project-detail-block, .project-detail-block ul {
     width: 0;
     bottom: 1px;
     position: absolute;
-    background: #19b5fe;
+    background: #009152;
     -webkit-transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     -moz-transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
@@ -4787,7 +4787,7 @@ ul.project-detail-block, .project-detail-block ul {
     width: 0;
     bottom: 1px;
     position: absolute;
-    background: #19b5fe;
+    background: #009152;
     -webkit-transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     -moz-transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
@@ -4811,7 +4811,7 @@ ul.project-detail-block, .project-detail-block ul {
     font-size: 12px;
 }
 .ui-input-group>input:focus ~ label, .ui-input-group>textarea:focus ~ label {
-    color: #19b5fe;
+    color: #009152;
 }
 .ui-input-group>input:focus ~ .input-bar:before, .ui-input-group>input:focus ~ .input-bar:after {
     width: 50%;
@@ -4832,7 +4832,7 @@ ul.project-detail-block, .project-detail-block ul {
     width: 20px;
     height: 20px;
     display: inline-block;
-    border: 1px solid #19b5fe;
+    border: 1px solid #009152;
     top: 4px;
     position: relative;
     margin-right: 10px;
@@ -4840,7 +4840,7 @@ ul.project-detail-block, .project-detail-block ul {
 .custom-check:before {
     content: "";
     font-family: "Ionicons";
-    color: #19b5fe;
+    color: #009152;
     font-size: 24px;
     position: absolute;
     top: -3px;
@@ -4877,14 +4877,14 @@ ul.project-detail-block, .project-detail-block ul {
     display: block;
 }
 .big-font i {
-    color: #19b5fe;
+    color: #009152;
 }
 .page-404 {
     border-top: 1px solid #f1f1f1;
 }
 /*custom datepicker*/
 #ui-datepicker-div .ui-widget-header {
-    background: #19b5fe;
+    background: #009152;
     border-radius: 0;
     border: none;
     color: #fff;
@@ -4919,10 +4919,10 @@ ul.project-detail-block, .project-detail-block ul {
     background: none;
 }
 .ui-datepicker-calendar .ui-state-default, .ui-datepicker-calendar .ui-widget-content .ui-state-default, .ui-datepicker-calendar .ui-widget-header .ui-state-default {
-    color: #19b5fe;
+    color: #009152;
 }
 .ui-datepicker-calendar .ui-state-hover, .ui-datepicker-calendar .ui-widget-content .ui-state-hover, .ui-datepicker-calendar .ui-widget-header .ui-state-hover {
-    background: #19b5fe;
+    background: #009152;
     color: #fff;
 }
 .slotholder:before {
@@ -4962,7 +4962,7 @@ ul.project-detail-block, .project-detail-block ul {
     padding-bottom: 0;
 }
 .modal-content button.close {
-    background: #19b5fe;
+    background: #009152;
     padding: 10px 15px;
     opacity: 1;
     margin: -30px -30px 0 0;
@@ -4996,7 +4996,7 @@ ul.project-detail-block, .project-detail-block ul {
     bottom: 28px;
     right: 25px;
     font-size: 23px;
-    color: #19b5fe;
+    color: #009152;
     pointer-events: none;
 }
 .modal-body .form-control {
@@ -5072,7 +5072,7 @@ ul.project-detail-block, .project-detail-block ul {
     display: none;
 }
 #timetable .fc-widget-header {
-    background: #19b5fe;
+    background: #009152;
 }
 #timetable .fc-timetable-wrapper .fc-toolbar h2 {
     color: #ffffff;
@@ -5128,7 +5128,7 @@ ul.project-detail-block, .project-detail-block ul {
     background-position: -122px -50px;
 }
 #timetable .fc-timetable-wrapper .fc-day-header {
-    background: #19b5fe;
+    background: #009152;
     color: #fff;
     font-family: 'Lato', sans-serif;
     font-size: 14px;
@@ -5553,7 +5553,7 @@ ul.project-detail-block, .project-detail-block ul {
     text-transform: capitalize;
 }
 .faq .collape-plus {
-    background: #19b5fe;
+    background: #009152;
     color: #fff;
 }
 .panel-title a[aria-expanded="true"] .fa-plus:before {
@@ -5582,7 +5582,7 @@ body.comming-soon {
     padding: 0;
 }
 .comming-soon .header-bar a {
-    color: #19b5fe;
+    color: #009152;
 }
 .comming-soon .header-bar {
     padding: 30px 0;
@@ -5632,7 +5632,7 @@ body.comming-soon {
     margin-bottom: 15px;
     display: inline-block;
     margin: 0 7px;
-    background: #19b5fe;
+    background: #009152;
     color: #fff;
 }
 .comming-soon .icons-hover-black i:hover {

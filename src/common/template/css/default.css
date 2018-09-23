@@ -158,7 +158,7 @@ a:hover,
 .appointment-section .input-sm,
 .custom-check,
 .btn-color-line {
-    border-color: #19b5fe;
+    border-color: #009152;
 }
 .btn-link-a:hover {
     border-bottom: 1px solid #19b5fe !important;
@@ -170,7 +170,7 @@ a:hover,
 @media (max-width: 767px) {
     .navigation,
     .book-app {
-        background: #19b5fe;
+        background: #009152;
     }
 }
 

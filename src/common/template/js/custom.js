@@ -22,11 +22,18 @@ $(document).ready(function() {
             if ($(this).next().next('ul').is(':hidden') == true) {
                 $(this).parent('li').addClass('on');
                 $(this).next().next('ul').slideDown('normal');
+            }else {
+                $('.navigation').slideToggle('normal');
             }
         }
         //return false;
     });
 
+    $('.navigation>ul> li ul').on('click', function() {
+        $('.navigation').slideToggle('normal');
+    });
+
+   
     var top_bar = $('#top-bar').height();
     var nav_bar = $('.nav-wrap').height();
     var secondary_bar = $('.secondary-header').height();
