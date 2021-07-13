@@ -45,7 +45,7 @@ export default class Blog extends Component {
                 <div className="col-sm-3 mb-xs-30" key={todo.id}>
                     <div className="blog-post">
                         <div className="post-media">
-                            <img src={todo.img_path} alt=""/>
+                            ©
                             <span className="event-calender blog-date"> {dia} <span>{mes}</span> </span>
                         </div>
                         <div className="post-meta">

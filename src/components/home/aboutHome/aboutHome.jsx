@@ -3,6 +3,10 @@ import axios from 'axios'
 
 import { myConfig } from '../../../main/consts'
 
+const informativoStyle = {
+    marginBottom: '25px'
+};
+
 const URL = 'http://localhost:8000/api/homeInfo';
 
 export default class AboutHome extends Component {
@@ -13,16 +17,6 @@ export default class AboutHome extends Component {
             titulo: '',
             descricao: ''
         };
-
-        this.getData();
-    }
-
-    getData() {
-        axios.get(`${myConfig.apiUrl}/homeInfo`).then(resp => this.setState({
-            ...this.state,
-            titulo: resp.data.dados.titulo,
-            descricao: resp.data.dados.descricao,
-        }));
     }
 
     render () {
@@ -36,7 +30,7 @@ export default class AboutHome extends Component {
                         </div>
                     </div>
                     <div className="row why-choose mt-30">
-                        <div className="col-md-4 col-sm-6 text-center">
+                        {/*<div className="col-md-4 col-sm-6 text-center">
                             <div className="padding-20">
                                 <a href="#/especialidades">
                                     <div className="page-icon-top">
@@ -46,8 +40,8 @@ export default class AboutHome extends Component {
                                 </a>
                                     <p>Veja a lista com nossas especialidades</p>
                             </div>
-                        </div>
-                        <div className="col-md-4 col-sm-6 text-center">
+                        </div>*/}
+                        {/*<div className="col-md-4 col-sm-6 text-center">
                             <div className="padding-20">
                                 <a href='#/cursos'>
                                     <div className="page-icon-top">
@@ -57,8 +51,8 @@ export default class AboutHome extends Component {
                                 </a>
                                     <p>Veja a lista com nossas especialidades</p>
                             </div>
-                        </div>
-                        <div className="col-md-4 col-sm-6  text-center">
+                        {/*</div>*!/*/}
+                        <div className="col-md-3 col-sm-4  text-center">
                             <div className="padding-20">
                                 <a href="http://lsantamaria.com.br/logins/login" target="_blank">
                                     <div className="page-icon-top">
@@ -69,7 +63,7 @@ export default class AboutHome extends Component {
                                     <p>Veja a lista com nossas especialidades</p>
                             </div>
                         </div>
-                        <div className="col-md-4 col-sm-6 text-center">
+                        <div className="col-md-3 col-sm-4 text-center">
                             <div className="padding-20">
                                 <a href="#/convenios">
                                     <div className="page-icon-top">
@@ -80,8 +74,8 @@ export default class AboutHome extends Component {
                                     <p>Veja a lista com nossos convênios</p>
                             </div>
                         </div>
-                        <div className="col-md-4 col-sm-6 text-center">
-                            <div className="padding-20">
+                        <div className="col-md-3 col-sm-4 text-center">
+                            <div className="padding-20" style={informativoStyle}>
                                 <a href="#/informativo">
                                     <div className="page-icon-top">
                                         <i className='fa fa-newspaper-o fa-4x'></i>
@@ -91,7 +85,7 @@ export default class AboutHome extends Component {
                                 <p>Veja nossa lista de Informações</p>
                             </div>
                         </div>
-                        <div className="col-md-4 col-sm-6 text-center">
+                        <div className="col-md-3 col-sm-4 text-center">
                             <div className="padding-20">
                                 <a href="#/contato">
                                     <div className="page-icon-top">

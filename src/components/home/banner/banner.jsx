@@ -1,13 +1,12 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Slider from "react-slick";
 import 'modules/slick-carousel/slick/slick.css'
 import 'modules/slick-carousel/slick/slick-theme.css'
 import './banner.css'
 
-import img1 from '../../../assets/images/banner/img2.jpg';
-import img2 from '../../../assets/images/banner/slide-2.jpg';
-import img3 from '../../../assets/images/banner/img3.jpg';
 
+import axios from 'axios'
+import { myConfig } from '../../../main/consts'
 
 var settings = {
     dots: true,
@@ -18,21 +17,47 @@ var settings = {
     slidesToScroll: 1
 };
 
-export default props => (
-    <div className="">
-        <Slider {...settings}>
-            <div>
-                <a href="#"><img src={img1} /></a>
-            </div>
-            <div>
-                <a href="#"><img src={img2} /></a>
-            </div>
-            <div>
-                <a href="#"><img src={img3} /></a>
-            </div>
-            <div>
-                <a href="#"><img src={img1} /></a>
-            </div>
-        </Slider>
-    </div>
-)
+export default class Blog extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { items: '' };
+        this.listaBanners = this.listaBanners.bind(this)
+    }
+
+    componentDidMount() {
+        axios.get(`${myConfig.apiUrl}/banner`).then(response => {
+            this.setState({
+                ...this.state,
+                items: response.data.dados
+            });
+        }).catch(function (error) {
+            console.log(error);
+        })
+    }
+
+    listaBanners() {
+        let list = this.state.items || [];
+
+        console.log('here...', list)
+
+
+
+        return list.map(todo => {
+            return (
+                <div key={todo.id}>
+                    <a href="#"><img src={todo.path_image}/></a>
+                </div>
+            )
+        })
+    }
+
+    render() {
+        return (
+        <div className="">
+            <Slider {...settings}>
+                {this.listaBanners()}
+            </Slider>
+        </div>
+        )
+    }
+}
